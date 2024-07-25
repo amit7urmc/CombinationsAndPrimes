@@ -7,7 +7,6 @@ class generatePrime:
         fileToWrite is a file where generated prime numbers are saved.
         """
         self.primeNumbersDiscovered = [2]
-        self.primeNumbersSteps = [0]
         self.runningNumber = 2
         self.primeNumbersDiscoveredListLength = 1
         self.fileToWrite = fileToWrite
@@ -24,7 +23,6 @@ class generatePrime:
                 skipFlag = False
                 self.runningNumber += 1
                 for i in range(self.primeNumbersDiscoveredListLength):
-                    self.primeNumbersSteps[i] += 1
                     if not self.runningNumber%self.primeNumbersDiscovered[i]:
                         skipFlag = True
                         break
@@ -32,7 +30,6 @@ class generatePrime:
                 if not skipFlag:
                     self.primeNumbersDiscovered.append(self.runningNumber)
                     self.primeNumbersDiscoveredListLength += 1
-                    self.primeNumbersSteps.append(0)
                     fileHandle.write(f"\n{self.runningNumber}")
                     counter += 1
                 if counter >= upto_n-1:
