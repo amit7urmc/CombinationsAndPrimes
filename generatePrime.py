@@ -1,6 +1,11 @@
 class generatePrime:
 
     def __init__(self, fileToWrite: str="./primeListGenerated.txt")-> None:
+        """
+        A list of prime numbers discovered and their current steps. 
+        To save computing the length in every iteration the list length is also maintained.
+        fileToWrite is a file where generated prime numbers are saved.
+        """
         self.primeNumbersDiscovered = [2]
         self.primeNumbersSteps = [0]
         self.runningNumber = 2
@@ -8,9 +13,12 @@ class generatePrime:
         self.fileToWrite = fileToWrite
 
     def yield_prime(self, upto_n:int)->None:
+        """
+        upto_n denotes how many prime numbers need to be written to the file.
+        """
         with open(self.fileToWrite,"w") as fileHandle:
-            fileHandle.write("primeNumbersGenerated\n")
-            fileHandle.write("2\n")
+            fileHandle.write("primeNumbersGenerated")
+            fileHandle.write("\n2")
             counter = 0
             while True:
                 skipFlag = False
@@ -25,12 +33,16 @@ class generatePrime:
                     self.primeNumbersDiscovered.append(self.runningNumber)
                     self.primeNumbersDiscoveredListLength += 1
                     self.primeNumbersSteps.append(0)
-                    fileHandle.write(f"{self.runningNumber}\n")
+                    fileHandle.write(f"\n{self.runningNumber}")
                     counter += 1
-                if counter > upto_n:
+                if counter >= upto_n-1:
                     break
     
-    def compare_against_known_result(self, know_result_file:str="./primeListGenerated.txt")->bool:
+    def compare_against_known_result(self, know_result_file:str="./PrimeNumbersTop1000.txt")->bool:
+        """
+        A known result file is taken as input. 
+        Care must be taken that it has at least same number of primes as the upto_n parameter in the yield_prime method.
+        """
         present_absent = None
         with open(know_result_file, "r") as knownHandle, open(self.fileToWrite,"r") as calculateddHandle:
             knownResult = knownHandle.readlines()[1:]
