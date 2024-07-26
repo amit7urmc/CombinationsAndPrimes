@@ -1,7 +1,7 @@
 \documentclass[12pt, twoside]{article}
-\title{Why a combination, $\Combination{n}{k}$, is always a natural number? Different way to look at the answer accentuates factors and prime numbers contained within a particular range of $1$ to $n$.}
+\title{Why a combination, $\Combination{n}{k}$, is always a natural number? Different way to look at the answer accentuates the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.}
 \author{Amit Kumar}
-\date{\today}
+\date{}
 \usepackage[a4paper, margin=0.75in]{geometry}
 \usepackage[page]{appendix}
 \usepackage{amsmath}
@@ -21,34 +21,34 @@
 \begin{document}
 	\maketitle
 	\section{Abstract}
-	 This article discusses why a combination $\Combination{n}{k}$ will always be a natural number and never a fraction or an irrational number. This article separates an $\Combination{n}{k}$ into selective, mutually exclusive and collectively exhaustive cases and then shows for each case that all the terms in a denominator have a corresponding multiple in the numerator. All $k$ for a particular $n$ for a $\Combination{n}{k}$ are visualized through plots to gain better understanding. This different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into factors and prime numbers contained within a particular range of $1$ to $n$, in the context of the plots.
+	 The concept of combination is crucial to layout groundwork for many fundamental sciences, finance and technical domains. Despite this, a direct and rigorous proof about integral nature of combination is comparatively thin in the literature. This article discusses why a combination $\Combination{n}{k}$ will always be a natural number and never a fraction or an irrational number. This article separates an $\Combination{n}{k}$ into selective, mutually exclusive and collectively exhaustive cases and then shows for each case that all the terms in a denominator have a corresponding multiple in the numerator. All $k$ for a particular $n$ (for a $\Combination{n}{k}$) are visualized through plots to gain better understanding. In the context of the plots, this different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.
 	\section{Introduction}
-	From countless ages, it has been desired to know the number of ways an arrangement can be obtained or selected out of many possible ways. The quest has travelled from ancient times and has captured the imagination of the great mathematicians like Bhaskara-II, Blaise Pascal, Pierre-de-Fermat, Leonhard Euler to name a few.\newline	
+	From countless ages, it has been desired to know the number of ways an arrangement can be obtained or selected out of many possible ways. The quest has travelled from ancient times and has captured the imagination of the great mathematicians like Bhaskara-II\cite{wikipediaCombinatorics}, Blaise Pascal\cite{wikipediaPascal}, Pierre-de-Fermat\cite{wikipediaFermat}, Leonhard Euler\cite{wikipediaEuler} to name a very few.\newline	
 	Permutations and Combinations have become fundamental concepts with wide ranging applications in almost every sphere of academic studies or technical endeavors.
-	Combination, $\Combination{n}{k}$ represents number of ways $k$ elements out of $n$ can be choosen, \textit{without any regard to order between the choosen items}. It is defined as $\Combination{n}{k} = \frac{n!}{(n-k)!\times(k)!}$. While it is possible to show that each of the denominator terms $(n-k)!$ and $k!$ individually cancel terms in the numerator, it is not rigorously shown if the product of these two terms ever compete for a single numerator. If this condition is true where two terms in the denominator have a single term in the numerator, then the result will be a fraction and not a natural number. The results have indeed been observed to be integers empirically. However, surprisingly, a rigorous mathematical discussion on this question is relatively scarce. Some indirect proofs are definitely there such as using Pascal's triangle. The $n$'th  row of the Pascal's triangle is expansion of Binomial Coefficients, where each Coefficient is a combination ($\Combination{n}{k}$). It should be apparent that a rigorous proof of the observation that a combination will never be a fraction is crucial since many fundamental science concepts depend on it.\newline
-	This paper aims to fill the gap and demonstrate that the final value of a combination will always collapse to an integer (more correctly a natural number). At the end of it we visualize our results and we find interesting connection of factors and prime numbers contained within the range $1$ to $n$ for a combination $\Combination{n}{1}$.
-	\section{Methods}
+	Combination, $\Combination{n}{k}$ represents number of ways $k$ elements out of $n$ can be choosen, \textit{without any regard to order between the choosen items}. It is defined as $\Combination{n}{k} = \frac{n!}{(n-k)!\times(k)!}$, where n! means factorial of n and is defined as $n\times(n-1)\times(n-2)\cdots3\times2\times1$. It can, also, be defined in the symbolic form as $\displaystyle\prod_{i=1}^{n} n_{i}$. While it has been shown that each of the denominator terms $(n-k)!$ and $k!$ separately cancel the terms in the numerator, it is not rigorously shown if the product of these two terms will ever compete for any terms in the numerator. If this condition is true, where two terms in the denominator have a single term in the numerator, then the result will be a fraction and not a natural number. The results have indeed been observed to be integers empirically over and over again. However, surprisingly, a rigorous mathematical discussion on this question is relatively scarce. Some indirect proofs are definitely there such as the one using Pascal's triangle. The $n$'th  row of the Pascal's triangle is expansion of Binomial Coefficients, where each Coefficient is a combination ($\Combination{n}{k}$). It should be apparent that a rigorous proof of the observation that a combination will never be a fraction is crucial since many fundamental science concepts depend on it.\newline
+	This paper aims to fill the gap and demonstrate that the final value of a combination will always collapse to an integer (more correctly a natural number). At the end of it we visualize our results and we find an interesting but also a simple connection with the generation process of factors and prime numbers contained within the range $1$ to $n$.
+	\section{Proofs}
 	\subsection{Why permutation $\Permutation{n}{k}$ is a natural number?}
-	Permutation is number of arrangements, when the order matters and is given by:\newline
+	Permutation is a number of arrangements, when the order \textit{matters} and is given by:
 	\begin{equation}
 		\Permutation{n}{k} = \frac{n!}{(n-k)!}  \; \text{where n,k} \in \mathbb{N}  \; \text{and} \; 1 \leq k \leq n
 	\end{equation}
-	 e.g. Number of possibilities to choose $5$ items out of $9$ choices, we will write as $\Permutation{9}{5} =\frac{9!}{(9-5)!}$\newline
-	 It is easy to show that $n!$ can be broken into multiplication two parts: one going from $n$ to $(n-k+1)$ and other going from $(n-k)$ to $1$. The denominator can also be written as multiplication of numbers from $(n-k)$ to $1$ as below.\newline
+	 \textit{e.g.} Number of possibilities to choose $5$ items out of $9$ choices, we will write as $\Permutation{9}{5} =\frac{9!}{(9-5)!}$\newline
+	 It is easy to show that $n!$ can be broken into a multiplication constituting two parts: one going from $n$ to $(n-k+1)$ and other going from $(n-k)$ to $1$. The denominator can also be written as multiplication of numbers from {\color{blue}$(n-k)$ to $1$} as below.
 	 \begin{align*}
 	 	\Permutation{n}{k} &= \frac{n!}{(n-k)!}\\
-	 	&= \frac{(n)\times(n-1)\cdots\times(n-k+1)\times\color{red}(n-k)\times(n-k-1)\cdots\times3\times2\times1}{\color{red}(n-k)\times(n-k-1)\times(n-k-2)\cdots\times3\times2\times1}\\
+	 	&= \frac{(n)\times(n-1)\cdots\times(n-k+1)\times\color{blue}(n-k)\times(n-k-1)\cdots\times3\times2\times1}{\color{blue}(n-k)\times(n-k-1)\times(n-k-2)\cdots\times3\times2\times1}\\
 	 	&= (n)\times(n-1)\cdots\times(n-k+1)
 	 \end{align*}
- 	Since each participating number in the product is a natural number, the net product is also a natural number.$\blacksquare$\newline
+ 	It is evident that the terms in \textbf{\color{blue}blue fonts} will cancel each other, in the numerator and the denominator, and we will be left with a product of integer sequence going from $n$ to $(n-k-1)$. Since each participating number in the product is a natural number, the net product is also a natural number.$\blacksquare$
  	\subsection{Why Combination $\Combination{n}{k}$ is a natural number?}
- 	Permutation is number of arrangements, when the order \textit{does not} matter and is given by:\newline
+ 	Combination is the number of arrangements, when the order \textit{does not} matter and is given by:\newline
  	\begin{equation}
  		\Combination{n}{k} = \frac{n!}{(n-k)!\times(k)!} \; \text{where n,k} \in \mathbb{N} \; \text{and} \; 1 \leq k \leq n
  	\end{equation}
  	This time we can cancel the denominator's k!
  	\begin{align*}
- 		\Combination{n}{k} &= \frac{(n)\times(n-1)\cdots\times(k+1)\times\color{red}(k)\times(k-1)\cdots\times3\times2\times1}{(n-k)\times(n-k-1)\cdots\times3\times2\times1\times\color{red}(k)\times(k-1)\cdots\times3\times2\times1}\\
+ 		\Combination{n}{k} &= \frac{(n)\times(n-1)\cdots\times(k+1)\times\color{blue}(k)\times(k-1)\cdots\times3\times2\times1}{(n-k)\times(n-k-1)\cdots\times3\times2\times1\times\color{blue}(k)\times(k-1)\cdots\times3\times2\times1}\\
  		&= \frac{(n)\times(n-1)\cdots\times(k+1)}{(n-k)\times(n-k-1)\cdots\times3\times2\times1}
  	\end{align*}
  Thus it can be written down as:
@@ -56,7 +56,7 @@
  	\Combination{n}{k} = \frac{(k+1)\times(k+2)\cdots\times(n-1)\times(n)}{(n-k)\times(n-k-1)\cdots\times3\times2\times1} \label{reducedCombinationForm}
  \end{equation}
 \subsubsection{Different possible values of $n$ and $k$ w.r.t each other.}
- If $n//2$ is defined as integer portion of division of $n$ by $2$, then we can see that one of the two below must be true:
+ If $n//2$ is defined as integer portion of division of $n$ by $2$, then we can see that one of the two statements, below, must be true:
  \begin{align}
  	n &= (n//2 \times 2) \; \text{where $n$ is an even number} \label{nIsEven}\\
  	n &= (n//2 \times 2) + 1 \; \text{where $n$ is an odd number} \label{nIsOdd}
@@ -70,7 +70,7 @@ On a similar note, $k$ can be defined as six and six only possibilities w.r.t $n
 	k &= n//2 - l \; \text{where $n$ is an odd number and } l \in \mathbb{N} , 1 \leq l \leq (n-1)/2 \label{kEqualsCase5}\\
 	k &= n//2 + m \; \text{where $n$ is an odd number and } m \in \mathbb{N} , 1 \leq m \leq (n+1)/2) \label{kEqualsCase6}		
 \end{align}
-Let us take concrete examples to understand equations from \eqref{nIsEven} to \eqref{kEqualsCase6}.\newline\newline
+Let us take a few concrete examples to understand the equations from equation \eqref{nIsEven} to equation \eqref{kEqualsCase6}.\newline\newline
 $\Combination{10}{0}$ means $n$ is even, $k = 0$ and $l=n//2=5$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase2} are realized.\newline
 $\Combination{10}{2}$ means n is even, $k = 2$ and $l=3$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase2} are realized.\newline
 $\Combination{10}{4}$ means $n$ is even, $k = 4$ and $l=1$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase2} are realized.\newline\newline
@@ -87,12 +87,12 @@ $\Combination{11}{8}$ means $n$ is odd, $k = 8$ and $m=3$: Thus equations \eqref
 $\Combination{11}{11}$ means $n$ is odd, $k = 11$ and $m= (n+1)/2=6$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase6} are realized.\newline\newline
 We can clearly see based on equations \eqref{kEqualsCase1} to \eqref{kEqualsCase6} that there are six possibilities that we separately need to take care and prove. In the following subsections, \ref{ProofkEqualsCase1} to \ref{ProofkEqualsCase6}, we will prove each of the above condition.
 \subsubsection{Setting up the problem}\label{settingUpTheProblem}
-Looking at equation \eqref{reducedCombinationForm} it is clear that each term in the denominator can be written as $(n-k-x)$, where $x \in \mathbb{W}, 0 \leq x \leq (n-k-1)$ and each term in the numerator can be written as $(k+y)$, where $y \in \mathbb{N}, 1 \leq y \leq (n-k)$. Formalizing in equations as below:
+Looking at the equation \eqref{reducedCombinationForm} it is clear that each term in the denominator can be written as $(n-k-x)$, where $x \in \mathbb{W}, 0 \leq x \leq (n-k-1)$ and each term in the numerator can be written as $(k+y)$, where $y \in \mathbb{N}, 1 \leq y \leq (n-k)$. Formalizing the two equations as below:
 \begin{align}
 	\text{denominator} &= \prod_{0}^{n-k-1}(n-k-x), \text{where $n$ and $k$ are constants and $x$ is the variable} \label{denominator}\\
 	\text{numerator} &= \prod_{1}^{n-k}(k+y), \text{where $k$ is a constant and $y$ is the variable} \label{numerator}
 \end{align}
-Now we have to show that for every $(n-k-x) \text{and } (k+y)$, there exists a natual number \textbf{$a$} such that $a \times (n-k-x) = (k+y)$ holds true. i.e.
+Now we have to show that for every $(n-k-x)$, there exists a natual number \textbf{$a$} such that $a \times (n-k-x) = (k+y)$ holds true. i.e.
 \begin{equation}
 	a \times (n-k-x) = (k+y), \text{where $a \in \mathbb{N}$}  \label{MultipleOfAisAnswer}
 \end{equation}
@@ -112,14 +112,14 @@ For $\Combination{10}{5} \text{ and } x = 1$ we get the solution as below
 	y &= a \times (5 - 1) - 5 \\
 	y &= a \times 4 - 5 \\
 \end{align*}
-Clearly if $a = 2$ we get a valid solution and $y=3$. Let us see what this means. This means that for denominator $(n-k-x) = (10-5-1) = 4$, we will get a corresponding numerator which will have its factor as $(k+y) = (5+3) = 8$. This is consistent. Let us take another example.\newline
+Clearly if $a = 2$ we get a valid solution and we obtain $y=3$. Let us see what this means. This means that for denominator $(n-k-x) = (10-5-1) = 4$, we will get a corresponding numerator which will have its factor as $(k+y) = (5+3) = 8$. This is consistent. Let us take another example.\newline
 For $\Combination{10}{5} \text{ and } x = 3$ we get the solution as below
 \begin{align*}
 	y &= (a-1)\times 5 - a \times 3 \\
 	y &= a \times (5 - 3) - 5 \\
 	y &= a \times 2 - 5 \\
 \end{align*}
-Clearly if $a = 3$ we get a valid solution and $y=1$. Let us see what this means. This means that for denominator $(n-k-x) = (10-5-3) = 2$, we will get a corresponding numerator which will have its factor as $(k+y) = (5+1) = 6$. This is also consistent.\newline
+Clearly if $a = 3$ we get a valid solution and then $y=1$. This result can be interpreted as before. This means that for the denominator $(n-k-x) = (10-5-3) = 2$, we will get a corresponding numerator which will have its factor as $(k+y) = (5+1) = 6$. This is also consistent.\newline
 For \eqref{yEqualsCase1}, we know that $x \in \mathbb{W}, 0 \leq x \leq (n-k-1)$ and $y \in \mathbb{N}, 1 \leq y \leq (n-k)$. These two conditions get simplified due to \eqref{kEqualsCase1} as $0 \leq x \leq (n//2-1)$. Let us put extreme conditions of $x$ to see if we can obtain a valid \textbf{$a$} for the denominator for every $y$.
 \begin{align*}
 	y &= (a-1)\times n//2 - a\times 0 \text{ this is due to \eqref{yEqualsCase1}} \\
@@ -131,7 +131,7 @@ Clearly an a can be choosen such that R.H.S is a natural number. Similarly we ca
 	y &= \cancel{a\times n//2} - n//2 -\cancel{a\times n//2} +a \\	
 	y &= a - n//2
 \end{align*}
-Clearly an \textbf{$a$} can be choosen such that R.H.S is a natural number. Thus we saw that an $a$ is available in the range of extreme $x$ values so that we always have \textbf{$a$} so that every denominator is a factor for some numerator.$\blacksquare$
+Clearly an \textbf{$a$} can be choosen such that R.H.S is a natural number. Thus we saw that an $a$ is available in the range of extreme $x$ values and thus we always have an \textbf{$a$} so that every denominator is a factor for some numerator.$\blacksquare$
 \subsubsection{$\Combination{n}{k}$ is always a natural number when equation \eqref{nIsEven} and \eqref{kEqualsCase2} hold true}\label{ProofkEqualsCase2}
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
@@ -144,15 +144,15 @@ $\Combination{10}{4}$. Here $n = 10$ and thus $n//2 = 5, k = 4, l = n//2 - k = 5
 Putting the above values in \eqref{yEqualsCase2}, we get
 $y = (a-1)5+1(a+1)-a\times 1 = (a-1)5+1$\newline
 Clearly $a = 2$ will solve the equation which is consistent with restrictions on $y$ and the value of $y$ will be $y=(2-1)\times5 + 1=6$. That means the corresponding multiples will reside in the numerator $(k+y)=(k+6)$.\newline
-Clearly, putting all the values in equation \eqref{MultipleOfAisAnswer} should get us no contradiction.
+Putting all the values in equation \eqref{MultipleOfAisAnswer} should get us no contradiction.
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
 	2 \times (10-4-1) &= (4+6) \nonumber \\
 	2 \times (5) &= (10) \nonumber \\
 	10 &= 10 \nonumber
 \end{align}
-Please note that $a = 1$ will also give a consistent solution as $y=(1-1)\times5 + 1=1$, which means $(k+1)$ as the numerator. It can be seen that $(n-k-x)=(10-4-1)=5$ will have two numerators where the multiples reside, one in $(k+1)=5$ and other in $(k+6)=10$.
-Let us take another example as $\Combination{10}{4}$ and $x = 3$. i.e. the denominator is $(n-k-3)$ and the corresponding numerator, $(k+y)$, has to be found. Using \eqref{yEqualsCase2}, we get $y = (a-1)5+1(a+1)-a*3 = (a-1)5+6$\newline. Again $a=3$ will solve the equation and $y$ will be $y=(3-1)\times5 +1+ 3*3=2$. That means the corresponding factor will reside in the numerator $(k+y)=(k+2)$.\newline. To see if it is consistent, we will have to put the values in \eqref{MultipleOfAisAnswer}.
+Please note that $a = 1$ will also give a consistent solution as $y=(1-1)\times5 + 1=1$, which means $(k+1)$ is the desired numerator. Please note that $(n-k-x)=(10-4-1)=5$ will have two numerators where the multiples reside, one in $(k+1)=5$ and other in $(k+6)=10$.
+We will have an addditional example as $\Combination{10}{4}$ and $x = 3$. i.e. the denominator is $(n-k-3)$ and the corresponding numerator, $(k+y)$, has to be found. Using \eqref{yEqualsCase2}, we get $y = (a-1)5+1(a+1)-a*3 = (a-1)5+6$\newline. Again $a=3$ will solve the equation and $y$ will be $y=(3-1)\times5 +1+ 3*3=2$. That means the corresponding factor will reside in the numerator $(k+y)=(k+2)$.\newline. To see if it is consistent, we will have to put the values in \eqref{MultipleOfAisAnswer} and we will find that the equality holds.
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
 	2 \times (10-4-3) &= (4+2) \nonumber \\
@@ -164,7 +164,7 @@ Now according to \eqref{denominator},
 	0 \leq x \leq (n-k-1) &= 0 \leq x \leq (2\times n//2-n//2+l-1) \nonumber \\
 	&= 0 \leq x \leq (n//2+l-1) \label{LimitOfXforYEqualsCase2}
 \end{align}
-We will show that the equations are consistent at the extremes of $x$ and therefore must be true for other values of $x$.\newline
+We will show that the equations are consistent at the extremes of $x$ and therefore must be true for other values of $x$ in between.\newline
 Choosing $x=0$ in the equation \eqref{yEqualsCase2}, we get
 \begin{align*}
 	y &= (a-1)\times n//2 + l \times (a+1) - a\times x \\
@@ -472,23 +472,25 @@ For \eqref{yEqualsCase1}, \eqref{yEqualsCase2}, \eqref{yEqualsCase3}, \eqref{yEq
 	\label{13Ck}									
 \end{figure}\newline
 The code for these plots (Figure \ref{2Ck}-\ref{13Ck}) is given in appendix \ref{PythonCodeToGenerateGraph}.
+\section{Implications of the current work}
+In the light of analyzing the previous graphs some implications naturally follow. They are about factors and prime numbers contained within the range $1$ to $n$ and more importantly their generation process. We find, as below, that the process is not random rather it is simple and systematic.
 \subsection{Delving deeper into the graphs}
 Based on the images seen before it is clear that the values of $a$ for which an $x$ has a corresponding $y$ have a set of striking patterns if we analyze all $k$ combinations of $\Combination{n}{k}$ for a given $n$. 
 \begin{enumerate}
 	\item For a given $n$, graph is most dense for $\Combination{n}{1}$ and least dense for $\Combination{n}{n-1}$. In other words, maximum number of $a$ (and thus $x$ and $y$) points are present on the graph in the former case and least points are present on the graph in the later case.
 	\item Vertical lines can be drawn for each $x$ (which goes into the denominator term $(n-k-x)$). 
-	\item For $\Combination{n}{1}$, graph, the position of dots on the graph (a dot is a valid solution with a value of $a$), for any vertical line can be easily predicted. For the right most vertical line (equal to the value of $(n-\textbf{1}-1)$) for $x$, the dots start at the value of $2$ for the lowest value of $y=\textbf{1}$ and then keep incrementing by $1$ for every \textbf{$1$} position towards the top for a value of $(n-1)$ correspnding to the $y=(n-1)$. For the next left line (correspnding to the $(n-\textbf{2}-1)$), the dots start at the value of $1$ for the lowest value of $y=\textbf{2}$ and then keep incrementing at every \textbf{$2$} position by $1$. For the preceeding subsequent line at $(n-\textbf{3}-1)$, the dots start at the value of $1$ for the lowest value of $y=\textbf{3}$ and then keep incrementing at every \textbf{$3$} position. This pattern holds for every preceeding line. For a line at position $(n-\textbf{k}-1)$, the points start at the value of $1$ for the lowest value of $y=\textbf{k}$ and then keep incrementing at every \textbf{$k$} location by $1$.
+	\item For $\Combination{n}{1}$, graph, the position of dots on the graph (a dot is a valid solution connecting $x$ and $y$ through a value of $a$), for any vertical line can be easily predicted. For the right most vertical line (equal to the value of $(n-\textbf{1}-1)$) for $x$, the dots start at the value of $2$ for the lowest value of $y=\textbf{1}$ and then keep incrementing by $1$ for every \textbf{$1$} position towards the top for a value of $(n-1)$ correspnding to the $y=(n-1)$. For the next left line (correspnding to the $(n-\textbf{2}-1)$), the dots start at the value of $1$ for the lowest value of $y=\textbf{2}$ and then keep incrementing at every \textbf{$2$} position by $1$. For the preceeding subsequent line at $(n-\textbf{3}-1)$, the dots start at the value of $1$ for the lowest value of $y=\textbf{3}$ and then keep incrementing at every \textbf{$3$} position. This pattern holds for every preceeding line. For a line at position $(n-\textbf{k}-1)$, the points start at the value of $1$ for the lowest value of $y=\textbf{k}$ and then keep incrementing at every \textbf{$k$} location by $1$.
 	\item Horizontal lines can be drawn for each $y$ (which goes into the numerator term $(k+y)$).
 	\item For $\Combination{n}{1}$, graph, the position of dots on the graph, for any horizontal line can be easily predicted. For a value of $y$ we consider $y+1$ and we find that the value of $a$ for the dots are nothing but the factors of $y+1$. Clearly prime numbers have no factors other than themselves and $1$.
-	\item As we go towards higher $k$ (starting from $1$ and go towards $(n-1)$) for the $\Combination{n}{k}$, the $\Combination{n}{1}$ graph shifts digonally (left and downwards) and terms outside the boundaries of $ 1 \leq y \leq (n-k)$ and $0 \leq x \leq (n-k-1)$ keep 'falling off' the graph and 'disappear'. This we can call as the 'destruction picture' or 'low-to-high picture'. Please see the attached image at this URL \url{https://github.com/amit7urmc/CombinationsAndPrimes/blob/master/25_C_k_264.mp4}.
-	\item As we go from higher to lower $k$ (starting from $(n-1)$ and towards 1) for the $\Combination{n}{k}$, the $\Combination{n}{1}$ graph shifts digonally (right and upwards) and terms within the boundaries of $ 1 \leq y \leq (n-k)$ and $0 \leq x \leq (n-k-1)$ keep 'joining' the graph and 'appear'. This we can call as the 'construction picture' or 'high-to-low picture'. Please see the attached image at this URL \url{https://github.com/amit7urmc/CombinationsAndPrimes/blob/master/25_C_k_reverse_264.mp4}.
-	\item In either of the pictures (destruction or construction), we can pause at any $\Combination{n}{k}$ and we can calculate the value of combination as follows: All the numbers on the right most vertical lines go in the numerator and then in each vertical line highest point is taken as the divisor and its correspnding right most number as the dividend. The result of this goes into the numerator for each vertical line (except the right most line). e.g. for $\Combination{25}{19}$, we can pause the construction/destruction picture there (or straightaway calculate the state using the code given in the appendix \ref{PythonCodeToGenerateGraph}) and we see that the right most vertical line consists of $25, 24, 23, 22, 21 \text{ and } 20$. There are $5$ vertical lines (except the right most). For the first vertical line in the left, the highest vertical point is $a=4$ and its corresponding right most point is $a=24$. So the first vertical line 'collapses' to $24/4=6$. The subsequent line to the right 'collapses' to $25/5=5$ since the highest point is $a=5$ and its corresponding to the right most point $a=25$. Similarly we can get the remaining numbers as $24/6=4$, $24/8=3$ and $24/12=2$. All these $5$ numbers $(6,5,4,3 \text{ and } 2)$, go in the denominator and we get the answer as $\frac{25\times24\times23\times22\times21\times20}{6\times5\times4\times3\times2}=177100$, which is exactly what is the answer for $\Combination{25}{19}$. 
+	\item As we go towards higher $k$ (starting from $1$ and go towards $(n-1)$) for the $\Combination{n}{k}$, the $\Combination{n}{1}$ graph shifts digonally (left and downwards) and terms outside the boundaries of $ 1 \leq y \leq (n-k)$ and $0 \leq x \leq (n-k-1)$ keep `falling off' the graph and `disappear'. This we can call as the `destruction picture' or `low-to-high picture'. Please see the attached image at this URL \url{https://github.com/amit7urmc/CombinationsAndPrimes/blob/master/25_C_k_264.mp4}.
+	\item As we go from higher to lower $k$ (starting from $(n-1)$ and towards 1) for the $\Combination{n}{k}$, the $\Combination{n}{1}$ graph shifts digonally (right and upwards) and terms within the boundaries of $ 1 \leq y \leq (n-k)$ and $0 \leq x \leq (n-k-1)$ keep `joining' the graph and `appear'. This we can call as the `construction picture' or `high-to-low picture'. Please see the attached image at this URL \url{https://github.com/amit7urmc/CombinationsAndPrimes/blob/master/25_C_k_reverse_264.mp4}.
+	\item In either of the pictures (destruction or construction), we can pause at any $\Combination{n}{k}$ and we can calculate the value of combination as follows: All the numbers on the right most vertical lines go in the numerator and then in each vertical line highest point is taken as the divisor and its correspnding right most number as the dividend. The result of this goes into the numerator for each vertical line (except the right most line). e.g. for $\Combination{25}{19}$, we can pause the construction/destruction picture there (or straightaway calculate the state using the code given in the appendix \ref{PythonCodeToGenerateGraph}) and we see that the right most vertical line consists of $25, 24, 23, 22, 21 \text{ and } 20$. There are $5$ vertical lines (except the right most). For the first vertical line in the left, the highest vertical point is $a=4$ and its corresponding right most point is $a=24$. So the first vertical line 'collapses' to $24/4=6$. The subsequent line to the right `collapses' to $25/5=5$ since the highest point is $a=5$ and its corresponding to the right most point $a=25$. Similarly we can get the remaining numbers as $24/6=4$, $24/8=3$ and $24/12=2$. All these $5$ numbers $(6,5,4,3 \text{ and } 2)$, go in the denominator and we get the answer as $\frac{25\times24\times23\times22\times21\times20}{6\times5\times4\times3\times2}=177100$, which is exactly what is the answer for $\Combination{25}{19}$. 
 	\item In the light of these images and in the hindsight, it is easy to see now that prime numbers do not appear, on the number-line, at random afterall! There is a definite and simple rule governing their appearance on the number line. To simplify the discussion and summary consider this analogy: 
 	\subitem In the beginning there is only one known prime in the list of primes i.e. [$2$] on the number line. 
-	\subitem Now each number (in the list of primes so far) hops one step. If for any prime number (the number of steps) modulus (the prime number itself) is zero (i.e. it is an exact multiple of that prime), then we discard that number from consideration of prime. However if for all numbers (in the list of primes) there is some remainder on modulus, then that means this \textbf{new step or the new number} is not a multiple of any known prime.
-	\subitem If in the above step we generate a prime then we add it to the list of known primes and the hopping continues until as long as desired. In the subsequent hops however this newly generated prime number 'joins' the hopping game.
-	\subitem Thus it seems that in this hopping game, any new numbers is 'spared' if it is an exact multiple of any known prime. However if all known primes 'desert' that number then this 'new orphan' number sprouts and comes into existence and immediately joins the hopping game.
-	\item To prove this computationally, we downloaded first known 1000 primes from \url{https://t5k.org/lists/small/1000.txt}  and compared it against the primes generated by this article's algorithm (in appendix \ref{PythonCodeToGeneratePrimes}). There is a perfect match!
+	\subitem Now each number (in the list of primes so far) hops one step on the integer number line. If for any prime number, the number of steps modulus the prime number itself is zero (i.e. if it is an exact multiple of that prime or logically $\text{[(number of steps )} \mod \text{(the particular prime number)]} == 0$), then we discard that number from the consideration of being a prime. However if for \textbf{all} numbers (in the list of primes till then) there is some remainder on modulus, then that means this \textbf{new step or the new number} is not a multiple of any known prime. Thus we have generated a prime number.
+	\subitem If in the above step we generate a prime then we add it to the list of known primes and the hopping continues until as long as desired. Before the subsequent hops, however, this newly generated prime number `joins' the hopping game by being included in the list of prime numbers.
+	\subitem Thus it seems that in this `hopping game' along the integer line, any new numbers is `spared' if it is an exact multiple of any known prime number till that step. However if all known prime numbers `desert' that number then this `new orphan' number `sprouts and comes into existence' and immediately joins the hopping game. There seems to be no end to this and this can continue indefinitely.
+	\item To prove this computationally, we downloaded first known 1000 primes from \url{https://t5k.org/lists/small/1000.txt}  and compared it against the primes generated by this algorithm mentioned above (in appendix \ref{PythonCodeToGeneratePrimes}). There is a perfect match!
 	
 \end{enumerate}
 \begin{figure}[ph!]
@@ -711,21 +713,28 @@ if __name__ == "__main__":
 class generatePrime:
 
     def __init__(self, fileToWrite: str="./primeListGenerated.txt")-> None:
+        """
+        A list of prime numbers discovered and their current steps. 
+        To save computing the length in every iteration the list length is also maintained.
+        fileToWrite is a file where generated prime numbers are saved.
+        """
         self.primeNumbersDiscovered = [2]
-        self.primeNumbersSteps = [0]
         self.runningNumber = 2
         self.primeNumbersDiscoveredListLength = 1
         self.fileToWrite = fileToWrite
 
     def yield_prime(self, upto_n:int)->None:
+        """
+        upto_n denotes how many prime numbers need to be written to the file.
+        """
         with open(self.fileToWrite,"w") as fileHandle:
-            fileHandle.write("primeNumbersGenerated\n")
+            fileHandle.write("primeNumbersGenerated")
+            fileHandle.write("\n2")
             counter = 0
             while True:
                 skipFlag = False
                 self.runningNumber += 1
                 for i in range(self.primeNumbersDiscoveredListLength):
-                    self.primeNumbersSteps[i] += 1
                     if not self.runningNumber%self.primeNumbersDiscovered[i]:
                         skipFlag = True
                         break
@@ -733,13 +742,16 @@ class generatePrime:
                 if not skipFlag:
                     self.primeNumbersDiscovered.append(self.runningNumber)
                     self.primeNumbersDiscoveredListLength += 1
-                    self.primeNumbersSteps.append(0)
-                    fileHandle.write(f"{self.runningNumber}\n")
+                    fileHandle.write(f"\n{self.runningNumber}")
                     counter += 1
-                if counter > upto_n:
+                if counter >= upto_n-1:
                     break
     
-    def compare_against_known_result(self, know_result_file:str="./primeListGenerated.txt")->bool:
+    def compare_against_known_result(self, know_result_file:str="./PrimeNumbersTop1000.txt")->bool:
+        """
+        A known result file is taken as input. 
+        Care must be taken that it has at least same number of primes as the upto_n parameter in the yield_prime method.
+        """
         present_absent = None
         with open(know_result_file, "r") as knownHandle, open(self.fileToWrite,"r") as calculateddHandle:
             knownResult = knownHandle.readlines()[1:]
@@ -760,8 +772,8 @@ if __name__ == "__main__":
     primeObj.yield_prime(upto_n)
     full_match = primeObj.compare_against_known_result()
     print(f"We tried to match first known {upto_n} primes with those generated by this program. The answer is {full_match_str if full_match else some_mismatch_str}")
-	
 	\end{python}	
 	This code is also available in github \url{https://github.com/amit7urmc/CombinationsAndPrimes}.
 \end{appendices}
+\bibliographystyle{unsrt} \bibliography{bibliography}
 \end{document}
