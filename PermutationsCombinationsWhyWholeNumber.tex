@@ -411,70 +411,10 @@ There can be an equivalent table where all the $a$ terms are brought together. T
 \end{tabular}
 \subsection{Visualizing the relationship between x and y as in \ref{Summary}}
 For \eqref{yEqualsCase1}, \eqref{yEqualsCase2}, \eqref{yEqualsCase3}, \eqref{yEqualsCase4}, \eqref{yEqualsCase5} and \eqref{yEqualsCase6}, we can have plots, where for each plot $x$ is on the abscissa while $y$ is on ordinate for different values of $\Combination{n}{k}$ (with implicit $l$ or $m$ if applicable).
-\begin{figure}[ph!]
-	\includegraphics[width=\linewidth]{2Ck.png}
-	\caption{Plot of $\Combination{2}{k}$}
-	\label{2Ck}
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{3Ck.png}
-	\caption{Plot of $\Combination{3}{k}$}
-	\label{3Ck}
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{4Ck.png}
-	\caption{Plot of $\Combination{4}{k}$}
-	\label{4Ck}
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{5Ck.png}
-	\caption{Plot of $\Combination{5}{k}$}
-	\label{5Ck}
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{6Ck.png}
-	\caption{Plot of $\Combination{6}{k}$}
-	\label{6Ck}
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{7Ck.png}
-	\caption{Plot of $\Combination{7}{k}$}
-	\label{7Ck}
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{8Ck.png}
-	\caption{Plot of $\Combination{8}{k}$}
-	\label{8Ck}
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{9Ck.png}
-	\caption{Plot of $\Combination{9}{k}$}
-	\label{9Ck}
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{10Ck.png}
-	\caption{Plot of $\Combination{10}{k}$}
-	\label{10Ck}
-\end{figure}	
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{11Ck.png}
-	\caption{Plot of $\Combination{11}{k}$}
-	\label{11Ck}									
-\end{figure}
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{12Ck.png}
-	\caption{Plot of $\Combination{12}{k}$}
-	\label{12Ck}
-\end{figure}	
-\begin{figure}[ph!]	
-	\includegraphics[width=\linewidth]{13Ck.png}
-	\caption{Plot of $\Combination{13}{k}$}
-	\label{13Ck}									
-\end{figure}\newline
-The code for these plots (Figure \ref{2Ck}-\ref{13Ck}) is given in appendix \ref{PythonCodeToGenerateGraph}.
+The \textit{python3} code for these plots (Figure \ref{2Ck}-\ref{13Ck}) is given in appendix \ref{PythonCodeToGenerateGraph}.
 \section{Implications of the current work}
 In the light of analyzing the previous graphs some implications naturally follow. They are about factors and prime numbers contained within the range $1$ to $n$ and more importantly their generation process. We find, as below, that the process is not random rather it is simple and systematic.
-\subsection{Delving deeper into the graphs}
+\subsection{Delving deeper into the graphs}\label{Implications}
 Based on the images seen before it is clear that the values of $a$ for which an $x$ has a corresponding $y$ have a set of striking patterns if we analyze all $k$ combinations of $\Combination{n}{k}$ for a given $n$. 
 \begin{enumerate}
 	\item For a given $n$, graph is most dense for $\Combination{n}{1}$ and least dense for $\Combination{n}{n-1}$. In other words, maximum number of $a$ (and thus $x$ and $y$) points are present on the graph in the former case and least points are present on the graph in the later case.
@@ -490,17 +430,14 @@ Based on the images seen before it is clear that the values of $a$ for which an 
 	\subitem Now each number (in the list of primes so far) hops one step on the integer number line. If for any prime number, the number of steps modulus the prime number itself is zero (i.e. if it is an exact multiple of that prime or logically $\text{[(number of steps )} \mod \text{(the particular prime number)]} == 0$), then we discard that number from the consideration of being a prime. However if for \textbf{all} numbers (in the list of primes till then) there is some remainder on modulus, then that means this \textbf{new step or the new number} is not a multiple of any known prime. Thus we have generated a prime number.
 	\subitem If in the above step we generate a prime then we add it to the list of known primes and the hopping continues until as long as desired. Before the subsequent hops, however, this newly generated prime number `joins' the hopping game by being included in the list of prime numbers.
 	\subitem Thus it seems that in this `hopping game' along the integer line, any new numbers is `spared' if it is an exact multiple of any known prime number till that step. However if all known prime numbers `desert' that number then this `new orphan' number `sprouts and comes into existence' and immediately joins the hopping game. There seems to be no end to this and this can continue indefinitely.
-	\item To prove this computationally, we downloaded first known 1000 primes from \url{https://t5k.org/lists/small/1000.txt}  and compared it against the primes generated by this algorithm mentioned above (in appendix \ref{PythonCodeToGeneratePrimes}). There is a perfect match!
+	\item To prove this computationally, we downloaded first known 1000 primes from \url{https://t5k.org/lists/small/1000.txt}  and compared it against the primes generated by the algorithm mentioned above (see appendix \ref{PythonCodeToGeneratePrimes} for the \textit{python3} code). There is a perfect match!\label{PrimeNumberGeneration}
 	
 \end{enumerate}
-\begin{figure}[ph!]
-\includegraphics[width=\linewidth]{25_1_alone.png}
-\caption{Distribution of $x,y \text{ and } a$ in the graph of $\Combination{25}{1}$}
-\label{25_C_1_example}
-\end{figure}
+\bibliographystyle{unsrt} \bibliography{bibliography}
 \begin{appendices}
 	\section{Code to generate the plots as in \ref{Summary}}\label{PythonCodeToGenerateGraph}
 	\begin{python}
+#!/usr/bin/python3
 from random import random
 from math import ceil, sqrt, nan
 import matplotlib.pyplot as plt 
@@ -708,8 +645,9 @@ if __name__ == "__main__":
     for k in range(1,n,1):
         create_one_case_graph(n, k)      
 	\end{python}
-	\section{Code to generate the prime numbers as in \ref{Summary}}\label{PythonCodeToGeneratePrimes}
+	\section{Code to generate the prime numbers (as discussed in section \ref{Implications} and item number \ref{PrimeNumberGeneration})}\label{PythonCodeToGeneratePrimes}
 	\begin{python}
+#!/usr/bin/python3
 class generatePrime:
 
     def __init__(self, fileToWrite: str="./primeListGenerated.txt")-> None:
@@ -774,6 +712,71 @@ if __name__ == "__main__":
     print(f"We tried to match first known {upto_n} primes with those generated by this program. The answer is {full_match_str if full_match else some_mismatch_str}")
 	\end{python}	
 	This code is also available in github \url{https://github.com/amit7urmc/CombinationsAndPrimes}.
+\section{Figures}
+\begin{figure}[ph!]
+	\includegraphics[width=\linewidth]{2Ck.png}
+	\caption{Plot of $\Combination{2}{k}$}
+	\label{2Ck}
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{3Ck.png}
+	\caption{Plot of $\Combination{3}{k}$}
+	\label{3Ck}
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{4Ck.png}
+	\caption{Plot of $\Combination{4}{k}$}
+	\label{4Ck}
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{5Ck.png}
+	\caption{Plot of $\Combination{5}{k}$}
+	\label{5Ck}
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{6Ck.png}
+	\caption{Plot of $\Combination{6}{k}$}
+	\label{6Ck}
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{7Ck.png}
+	\caption{Plot of $\Combination{7}{k}$}
+	\label{7Ck}
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{8Ck.png}
+	\caption{Plot of $\Combination{8}{k}$}
+	\label{8Ck}
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{9Ck.png}
+	\caption{Plot of $\Combination{9}{k}$}
+	\label{9Ck}
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{10Ck.png}
+	\caption{Plot of $\Combination{10}{k}$}
+	\label{10Ck}
+\end{figure}	
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{11Ck.png}
+	\caption{Plot of $\Combination{11}{k}$}
+	\label{11Ck}									
+\end{figure}
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{12Ck.png}
+	\caption{Plot of $\Combination{12}{k}$}
+	\label{12Ck}
+\end{figure}	
+\begin{figure}[ph!]	
+	\includegraphics[width=\linewidth]{13Ck.png}
+	\caption{Plot of $\Combination{13}{k}$}
+	\label{13Ck}									
+\end{figure}
+\begin{figure}[ph!]
+\includegraphics[width=\linewidth]{25_1_alone.png}
+\caption{Distribution of $x,y \text{ and } a$ in the graph of $\Combination{25}{1}$}
+\label{25_C_1_example}
+\end{figure}
 \end{appendices}
-\bibliographystyle{unsrt} \bibliography{bibliography}
 \end{document}
