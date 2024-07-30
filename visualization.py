@@ -1,6 +1,7 @@
 #!/use/bin/python
 """
 This module visualizes the graphs for a particular combination nCk.
+create_chart_combination functions creates all x and y so that it can be plotted.
 There are two functions:
 (1) create_all_cases_graph: for all k(s) for a given n
 (2) create_one_case_graph: for a specific k for a given n
