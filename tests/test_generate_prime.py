@@ -1,4 +1,4 @@
-from generate_prime import GeneratePrime
+from src.generate_prime import GeneratePrime
 
 def test_correct_generation_primes():
     UPTO_N = 1000

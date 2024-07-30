@@ -1,5 +1,5 @@
 import os
-from visualization import create_all_cases_graph, create_one_case_graph
+from src.visualization import create_all_cases_graph, create_one_case_graph
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def test_visualization_all():
