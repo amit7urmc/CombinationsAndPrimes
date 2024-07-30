@@ -6,11 +6,11 @@ def test_visualization_all():
     """
     tests create_all_cases_graph
     """
-    create_all_cases_graph([2,3], figure_path=os.path.join(CURRENT_DIR,"figures"))
-    assert os.path.isfile(f"{CURRENT_DIR}/figures/2Ck.png")
-    assert os.path.isfile(f"{CURRENT_DIR}/figures/3Ck.png")
-    os.remove(f"{CURRENT_DIR}/figures/2Ck.png")
-    os.remove(f"{CURRENT_DIR}/figures/3Ck.png")
+    create_all_cases_graph([10,11], figure_path=os.path.join(CURRENT_DIR,"figures"))
+    assert os.path.isfile(f"{CURRENT_DIR}/figures/10Ck.png")
+    assert os.path.isfile(f"{CURRENT_DIR}/figures/11Ck.png")
+    os.remove(f"{CURRENT_DIR}/figures/10Ck.png")
+    os.remove(f"{CURRENT_DIR}/figures/11Ck.png")
 
 def test_visualization_one():
     """
