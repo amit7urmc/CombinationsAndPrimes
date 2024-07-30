@@ -226,7 +226,7 @@ def create_chart_combination(n: int, k:int)->list[list[int], list[int], list[int
     returned_results = [returned_x, returned_y, returned_params]
     return returned_results
 
-def create_one_case_graph(n: int, k: int)->None:
+def create_one_case_graph(n: int, k: int, figure_path: None=None)->None:
     """
     Unlike the create_all_case_graphs, this function takes a specific n and k and create a graph.
     """
@@ -249,10 +249,13 @@ def create_one_case_graph(n: int, k: int)->None:
         ax.annotate(annotation, xy=xy, xytext=(10,-20),textcoords=TEXTCOORDS)
     ax.set_xlabel('x as in denominator (n-k-x)')
     ax.set_ylabel('y as in numerator (k+y)')
-    fig.savefig(f'./{n}_{k}_alone.png')
+    if figure_path:
+        fig.savefig(f'{figure_path}/{n}_{k}_alone.png')
+    else:
+        fig.savefig(f'./{n}_{k}_alone.png')
     plt.close()
 
-def create_all_cases_graph(n: list[int, int])->None:
+def create_all_cases_graph(n: list[int, int], figure_path:None=None)->None:
     """
     Supplied one even and one add number. 0th index should be even while 1st index should be odd.
     """
@@ -280,7 +283,11 @@ def create_all_cases_graph(n: list[int, int])->None:
     fig.suptitle("Graph for various nCk, where n is even")
     fig.supxlabel("x as in denominator (n-k-x)")
     fig.supylabel("y as in numerator (k+y)")
-    
+    if figure_path:
+        fig.savefig(f"{figure_path}/{n[0]}Ck.png")
+    else:
+        fig.savefig(f"./{n[0]}Ck.png")
+
     fig, axs2 = plt.subplots(nrows=int(ceil(sqrt(n[1]))),ncols=int(ceil(sqrt(n[1]))), sharey=True, sharex=True)
     for axs_row in axs2:
         for axs_col in axs_row:
@@ -305,7 +312,11 @@ def create_all_cases_graph(n: list[int, int])->None:
     fig.supxlabel("x as in denominator (n-k-x)")
     fig.supylabel("y as in numerator (k+y)")
 
-    plt.show()       
+    if figure_path:
+        fig.savefig(f"{figure_path}/{n[1]}Ck.png")
+    else:
+        fig.savefig(f"./{n[1]}Ck.png")
+    plt.close()       
 
 
                    
