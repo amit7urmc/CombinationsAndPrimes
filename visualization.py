@@ -4,6 +4,7 @@ This module visualizes the graphs for a particular combination nCk.
 There are two functions:
 (1) create_all_cases_graph: for all k(s) for a given n
 (2) create_one_case_graph: for a specific k for a given n
+There are 6 helper function depending n is even and if k has l or m.
 """
 from math import ceil, sqrt
 from typing import Union
