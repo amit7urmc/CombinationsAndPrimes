@@ -6,6 +6,8 @@ def test_visualization_all():
     create_all_cases_graph([2,3], figure_path=os.path.join(CURRENT_DIR,"figures"))
     assert os.path.isfile(f"{CURRENT_DIR}/figures/2Ck.png")
     assert os.path.isfile(f"{CURRENT_DIR}/figures/3Ck.png")
+    os.remove(f"{CURRENT_DIR}/figures/2Ck.png")
+    os.remove(f"{CURRENT_DIR}/figures/3Ck.png")
 
 def test_visualization_one():
     n=25
@@ -22,4 +24,9 @@ def test_visualization_one():
     assert os.path.isfile(f"{CURRENT_DIR}/figures/24_1_alone.png")
     assert os.path.isfile(f"{CURRENT_DIR}/figures/24_12_alone.png")
     assert os.path.isfile(f"{CURRENT_DIR}/figures/24_23_alone.png")
-
+    os.remove(f"{CURRENT_DIR}/figures/25_1_alone.png")
+    os.remove(f"{CURRENT_DIR}/figures/25_12_alone.png")
+    os.remove(f"{CURRENT_DIR}/figures/25_24_alone.png")
+    os.remove(f"{CURRENT_DIR}/figures/24_1_alone.png")
+    os.remove(f"{CURRENT_DIR}/figures/24_12_alone.png")
+    os.remove(f"{CURRENT_DIR}/figures/24_23_alone.png")
