@@ -20,4 +20,20 @@
 \newblock Leonhard euler, 2024.
 \newblock [Online; accessed 26-July-2024].
 
+\bibitem{wikipediaPascalTriangle}
+{Wikipedia}.
+\newblock Pascal's triangle, 2024.
+\newblock [Online; accessed 01-August-2024].
+
+\bibitem{PrincTechCombinatorics}
+Chuang-Chong Chen and Khee-Meng Koh.
+\newblock {\em Principles and Techniques in Combinatorics}.
+\newblock World Scientific, 1992.
+
+\bibitem{ProbabilityKIndle}
+Scott Hartshorn.
+\newblock {\em Probability - A Beginner's guide To Permutations and
+  Combinations}.
+\newblock Amazon Kindle, 2016.
+
 \end{thebibliography}
