@@ -1,4 +1,4 @@
-\documentclass[12pt, twoside]{article}
+\documentclass[10pt, twoside]{article}
 \title{Why a combination, $\Combination{n}{k}$, is always a natural number? Different way to look at the answer accentuates the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.}
 \author{Amit Kumar}
 \date{}
@@ -21,28 +21,87 @@
 \begin{document}
 	\maketitle
 	\section{Abstract}
-	 The concept of combination is crucial to layout groundwork for many fundamental sciences, finance and technical domains. Despite this, a direct and rigorous proof about integral nature of combination is comparatively thin in the literature. This article discusses why a combination $\Combination{n}{k}$ will always be a natural number and never a fraction or an irrational number. This article separates an $\Combination{n}{k}$ into selective, mutually exclusive and collectively exhaustive cases and then shows for each case that all the terms in a denominator have a corresponding multiple in the numerator. All $k$ for a particular $n$ (for a $\Combination{n}{k}$) are visualized through plots to gain better understanding. In the context of the plots, this different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.
+	 The concept of combination is crucial to layout groundwork for many fundamental sciences, finance and technical domains. Despite having countless empirical observations that a combination (for a `choosen n and k') is always a natural number, a direct proof (inductive or non-inductive) that a combination is always integral, is not rigorously demonstrated in the literature. This article discusses why a combination $\Combination{n}{k}$ will always be a natural number and never fractional or irrational. This article separates an $\Combination{n}{k}$ into mutually exclusive and collectively exhaustive cases and then shows for each case that any term in a denominator have at least one corresponding multiple in the numerator. All $k$ for a particular $n$ (for an $\Combination{n}{k}$) are visualized through plots to gain better understanding. In the context of the plots, this different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.
 	\section{Introduction}
-	From countless ages, it has been desired to know the number of ways an arrangement can be obtained or selected out of many possible ways. The quest has travelled from ancient times and has captured the imagination of the great mathematicians like Bhaskara-II\cite{wikipediaCombinatorics}, Blaise Pascal\cite{wikipediaPascal}, Pierre-de-Fermat\cite{wikipediaFermat}, Leonhard Euler\cite{wikipediaEuler} to name a very few.\newline	
-	Permutations and Combinations have become fundamental concepts with wide ranging applications in almost every sphere of academic studies or technical endeavors.
-	Combination, $\Combination{n}{k}$ represents number of ways $k$ elements out of $n$ can be choosen, \textit{without any regard to order between the choosen items}. It is defined as $\Combination{n}{k} = \frac{n!}{(n-k)!\times(k)!}$, where n! means factorial of n and is defined as $n\times(n-1)\times(n-2)\cdots3\times2\times1$. It can, also, be defined in the symbolic form as $\displaystyle\prod_{i=1}^{n} n_{i}$. While it has been shown that each of the denominator terms $(n-k)!$ and $k!$ separately cancel the terms in the numerator, it is not rigorously shown if the product of these two terms will ever compete for any terms in the numerator. If this condition is true, where two terms in the denominator have a single term in the numerator, then the result will be a fraction and not a natural number. The results have indeed been observed to be integers empirically over and over again. However, surprisingly, a rigorous mathematical discussion on this question is relatively scarce. Some indirect proofs are definitely there such as the one using Pascal's triangle. The $n$'th  row of the Pascal's triangle is expansion of Binomial Coefficients, where each Coefficient is a combination ($\Combination{n}{k}$). It should be apparent that a rigorous proof of the observation that a combination will never be a fraction is crucial since many fundamental science concepts depend on it.\newline
-	This paper aims to fill the gap and demonstrate that the final value of a combination will always collapse to an integer (more correctly a natural number). At the end of it we visualize our results and we find an interesting but also a simple connection with the generation process of factors and prime numbers contained within the range $1$ to $n$.
+	From countless ages, it has been desired to know the number of ways an arrangement can be obtained or selected out of many possible ways. The quest has travelled from ancient times and has captured the imagination of the great mathematicians like Bhaskara-II\cite{wikipediaCombinatorics}, Blaise Pascal\cite{wikipediaPascal}, Pierre-de-Fermat\cite{wikipediaFermat}, Leonhard Euler\cite{wikipediaEuler} to name a very few.
+	\paragraph{}Permutations and Combinations have become fundamental concepts with wide ranging applications in almost every sphere of academic studies or technical endeavors. While a permutation, $\Permutation{n}{k}$, tells how many number of ways $k$ objects can be arranged out of $n$ objects, if we are interested in \textit{exact order of the choosen $k$ items} \cite{PrincTechCombinatorics}.
+		\begin{equation}
+			\Permutation{n}{k} = \frac{n!}{(n-k)!}  \; \text{where n,k} \in \mathbb{N}  \; \text{and} \; 1 \leq k \leq n
+		\end{equation}
+		 \textit{e.g.} Number of possibilities to choose $5$ items out of $9$ choices, we will write as $\Permutation{9}{5} =\frac{9!}{(9-5)!}$ (see a nice introduction \cite{ProbabilityKIndle}).
+		 It is easy to show that $n!$ (in the numerator) can be broken into a multiplication constituting two parts: one going from $n$ to $(n-k+1)$ and other going from $(n-k)$ to $1$. The denominator can also be written as multiplication of numbers from {\color{blue}$(n-k)$} to {\color{blue}$1$} as below.
+		 \begin{align}
+		 	\Permutation{n}{k} &= \frac{n!}{(n-k)!} \nonumber \\
+		 	&= \frac{(n)\times(n-1)\cdots\times(n-k+1)\times\color{blue}(n-k)\times(n-k-1)\cdots\times3\times2\times1}{\color{blue}(n-k)\times(n-k-1)\times(n-k-2)\cdots\times3\times2\times1} \nonumber \\
+		 	&= (n)\times(n-1)\cdots\times(n-k+1) \label{CondensedEquationPermutation}
+		 \end{align}
+	 	It is evident that the terms in \textbf{\color{blue}blue fonts} will cancel each other, in the numerator and the denominator, and we will be left with a product of integer sequence going from $n$ to $(n-k+1)$. Since each participating number in the product is a natural number, the net product is also a natural number.
+	 	
+	 	Combination, $\Combination{n}{k}$ represents number of ways $k$ elements out of $n$ can be choosen, \textit{without any regard to order between the choosen items} \cite{PrincTechCombinatorics}. Below are equivalent representations of a combination.
+	\begin{align}
+	\Combination{n}{k} &= \binom{n}{k} = C(n, k)  \\
+					   &= \frac{\color{blue}\Permutation{n}{k}}{k!} \label{ConnectionBetweenPermutationAndCOmbination}\\	
+					   &= \frac{\color{blue}n!}{{\color{blue}(n-k)!}\times(k)!} \label{FractionalDefinitionOfCombination}
+	\end{align} 
+	where n! means factorial of n and is defined as $n\times(n-1)\times(n-2)\cdots3\times2\times1$. Some striking correlations are definitely there such as the one using Pascal's triangle. The $n$'th  row of the Pascal's triangle \cite{wikipediaPascalTriangle} is stacked rows of expansion of Binomial Coefficients, where each $k$'th coefficient (in the $n$'th row) is the value of a combination $\Combination{n}{k}$ (see Table \ref{PascalsTriangleAndCombination} and footnote\footnote{Please note that $\Combination{1}{0}=\Combination{1}{1}=1$ as there is exactly one way how $0$ or $n$ items can be choosen out of a total $n$ items}).\newline
+		\begin{table}[h!]
+		\centering
+		\setlength{\tabcolsep}{1pt}
+		\begin{tabular*}{0.7\textwidth}[t]{*{14}l | l | *{14}l}
+		\hfill & \hfill & \hfill & \hfill & \hfill & \hfill & 1 & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & $\Combination{1}{0}$ & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill \\
+		\hfill & \hfill & \hfill & \hfill & 1 & \hfill & 2 & \hfill & 1 &\hfill & \hfill & \hfill & \hfill & \hfill &	\hfill & \hfill & \hfill & \hfill & \hfill & $\Combination{2}{0}$  & \hfill & $\Combination{2}{1}$ & \hfill & $\Combination{2}{2}$ &\hfill & \hfill & \hfill & \hfill \\
+		\hfill & \hfill & \hfill & 1 & \hfill & 3 & \hfill & 3 &\hfill & 1 & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & $\Combination{3}{0}$  & \hfill & $\Combination{3}{1}$ &  \hfill & $\Combination{3}{2}$ &\hfill  & $\Combination{3}{3}$ & \hfill & \hfill &\hfill  \\	
+		\hfill & \hfill & 1 & \hfill & 4 & \hfill & 6 & \hfill & 4 & \hfill & 1 & \hfill & \hfill & \hfill & & \hfill	\hfill & \hfill  & $\Combination{4}{0}$ & \hfill & $\Combination{4}{1}$ & \hfill & $\Combination{4}{2}$ & \hfill & $\Combination{4}{3}$ & \hfill  & $\Combination{4}{4}$ & \hfill & \hfill \\
+		\hfill & 1 & \hfill & 5 & \hfill & 10 & \hfill & 10 & \hfill & 5 & \hfill & 1 & \hfill & \hfill & \hfill & \hfill & $\Combination{5}{0}$ & 	\hfill & $\Combination{5}{1}$  & \hfill & $\Combination{5}{2}$ & \hfill & $\Combination{5}{3}$ & \hfill & $\Combination{5}{4}$  & \hfill   & $\Combination{5}{5}$ & \hfill \\		
+		\end{tabular*}
+		\caption{Correlation between Pascal's triangle (left) to Combinations (right)}
+		\label{PascalsTriangleAndCombination}		
+		\end{table}\newline
+		Given the Pascal's triangle it is easy to observe and inductively prove \cite{PrincTechCombinatorics} that
+		\begin{align}
+			\binom{n}{k} &= \binom{n-1}{k-1} + \binom{n-1}{k}  \label{InductiveCombination}\\
+			\text{or}\\
+			\Combination{n}{k} &= \Combination{n-1}{k-1} + \Combination{n-1}{k} \text{ , where $0 < k < n$ ($\because \Combination{n}{0}=\Combination{n}{n}=1$, need not be computed. \cite{PrincTechCombinatorics}) }
+		\end{align}
+	  It can also be observed in table \ref{PascalsTriangleAndCombination} that the combinations (and the Pasacal's triangle) have a symmetry:
+	  \begin{align*}
+	   	\Combination{n}{k} &= \frac{n!}{(n-k)!\times(k)!} \\
+	   	\Combination{n}{(n-k)} &= \frac{n!}{(n-(n-k))!\times(n-k)!} \\
+	   	&= \frac{n!}{{(k)!}\times(n-k)!} \\
+	   	&= \frac{n!}{(n-k)!\times(k)!} \\
+	   	\therefore \Combination{n}{k} &= \Combination{n}{(n-k)}  
+	  \end{align*}
+	\paragraph{} The results (value of combinations) have been observed to be integers (empirically, over and over again based on calculation) for a particular choice of n and k. We can think of `indirect' proofs that show the combination is integral. \textit{e.g.} We have established above that a permutation, $\Permutation{n}{k}$, is integral. Now by the definition of equation \eqref{ConnectionBetweenPermutationAndCOmbination}, we can say the below:
+	\begin{align*}
+	   & \Permutation{n}{k} = \Combination{n}{k} \times (k)! \\
+	   & \because \text{ L.H.S. is known to be an integer (see equation \eqref{CondensedEquationPermutation}), the R.H.S must also be an integer and is shown below. } \\
+	   & \Combination{n}{k} \times (k)! = \Combination{n}{k} \times \text{ an integer value } (\because \text{ (k)! will always be an integer. }) \\
+	   & \therefore \text{ to make the R.H.S. an integer the combination `must' be an integer as well. } \blacksquare 
+	\end{align*}
+	The proof looks promising but arguments like the below dent it. `\textbf{If}' the $(k)!$ is an even number \textbf{and} $\Combination{n}{k}$ is a fraction number of the nature $x.5 \text{ where $x$ can be any integer}$, then the multiplication of $\Combination{n}{k}\times (k)!$ will still be an integer. However it is trivial to see that the combination is definitely not integral in `this hypothetical' example.
+	
+	On similar lines, we can also make use of equation \eqref{InductiveCombination} and `\textbf{say}' that by induction on `n' the integrality of the combination `will' hold, subjected to the following conditions:
+	\begin{itemize}
+	\item $\displaystyle \binom{n}{k} = 0 \text{ if $n < k$, premise-1}$
+	\item $\displaystyle \binom{n}{k} = 1 \text{ if $k=0$ or $k=n$, premise-2}$
+	\end{itemize}
+	In these inductive steps, all is fine, if $k \geq n$, since the answer is either 0 or 1. However as soon as $n > k$, we go ahead and assume for one of the two terms that it will be an integer. This is like putting the cart ahead of the horse since we set out to prove that $\Combination{n}{k} = \binom{n}{k}$, will always be an integer in the first place. Let us see below what we mean by this statement. Let's try to calculate $\binom{7}{3}$ using the induction by starting at $n=0$. We can calculate the final value easily `if we do the calculations manually' as below.
+	\begin{align}
+	 \binom{1}{3} &= \binom{0}{3} + \binom{0}{2} = 0 + 0 = 0 \text{   $\because  \binom{0}{k}=0$ } \\
+	 \binom{2}{3} &= \binom{1}{3} + \binom{1}{2} = 0 + 0 = 0 \\
+	 \binom{3}{3} &= \binom{2}{3} + \binom{2}{2} = 0 + 1 = 1 \text{   [$\binom{2}{2}=1 \because  \binom{n}{n}=1$, by premise-2] } \\
+	 \binom{4}{3} &= \binom{3}{3} + \binom{3}{2} = 1 + 3 = 4 \textit{ See the discussion in footnote for this and next 3 steps\footnotemark}\\
+	 \binom{5}{3} &= \binom{4}{3} + \binom{4}{2} = 4 + 6 = 10 \\
+	 \binom{6}{3} &= \binom{5}{3} + \binom{5}{2} = 10 + 10 = 20 \\
+	 \binom{7}{3} &= \binom{6}{3} + \binom{6}{2} = 20 + 15 = 35	 	  	 	 
+	\end{align}\footnotetext{To be sure that $\binom{3}{2}$ is an integer we have to calculate it, since this is outside base condition. Equality does not `necessarily' imply integer nature. This holds for $\binom{4}{3}, \binom{4}{2}, \binom{5}{2}, \binom{5}{3} \cdots$ and so on}
+	
+	$\Combination{7}{3}$ is indeed 35 but please note that the only thing we could be sure that the L.H.S will be equal to R.H.S. At no stage it was implicit that the R.H.S will be an integer once $n > k$ and since we were trying to prove that a combination is always integer, we cannot assume itself during our steps. We could have been in a better position if we could do simultaneous induction on $n$ and $k$ and show that $\Combination{n}{k}$ is an integer even if $n > k$. Thus we can conclude that a direct, inductive or non-inductive and algebraic, proof that the value of combination will `always' be an integer for `any choice of $n$ and $k$', is not `\textbf{explicitly}' stated.  
+	
+	While a rigorous, inductive algebraic proof establishing that combinations are integral and only integral in nature, may prove to be hard, it should be possible to prove the same by non-inductive blocks of steps. This paper aims to fill the gap and demonstrate non-inductively and algebraically that the final value of a combination will `always collapse to an integer (more correctly a natural number)'. At the end of it we visualize our results through graphs and we find an interesting but also a simple connection with the generation process of factors and prime numbers contained within the range $1$ to $n$. We conclude this article by showing that prime numbers do not arise randomly but they have a simple and systematic generation algorithm. To show effectiveness of this algorithm we start with a \textbf{single prime number, 2,} and generate the first 1000 prime numbers. These \textbf{generated} 1000 primes match exactly the first 1000 \textbf{known} prime numbers.
 	\section{Proofs}
-	\subsection{Why permutation $\Permutation{n}{k}$ is a natural number?}
-	Permutation is a number of arrangements, when the order \textit{matters} and is given by:
-	\begin{equation}
-		\Permutation{n}{k} = \frac{n!}{(n-k)!}  \; \text{where n,k} \in \mathbb{N}  \; \text{and} \; 1 \leq k \leq n
-	\end{equation}
-	 \textit{e.g.} Number of possibilities to choose $5$ items out of $9$ choices, we will write as $\Permutation{9}{5} =\frac{9!}{(9-5)!}$\newline
-	 It is easy to show that $n!$ can be broken into a multiplication constituting two parts: one going from $n$ to $(n-k+1)$ and other going from $(n-k)$ to $1$. The denominator can also be written as multiplication of numbers from {\color{blue}$(n-k)$ to $1$} as below.
-	 \begin{align*}
-	 	\Permutation{n}{k} &= \frac{n!}{(n-k)!}\\
-	 	&= \frac{(n)\times(n-1)\cdots\times(n-k+1)\times\color{blue}(n-k)\times(n-k-1)\cdots\times3\times2\times1}{\color{blue}(n-k)\times(n-k-1)\times(n-k-2)\cdots\times3\times2\times1}\\
-	 	&= (n)\times(n-1)\cdots\times(n-k+1)
-	 \end{align*}
- 	It is evident that the terms in \textbf{\color{blue}blue fonts} will cancel each other, in the numerator and the denominator, and we will be left with a product of integer sequence going from $n$ to $(n-k-1)$. Since each participating number in the product is a natural number, the net product is also a natural number.$\blacksquare$
  	\subsection{Why Combination $\Combination{n}{k}$ is a natural number?}
- 	Combination is the number of arrangements, when the order \textit{does not} matter and is given by:\newline
+ 	Combination is the number of arrangements, when the order \textit{does not} matter and is given by \cite{PrincTechCombinatorics}:\newline
  	\begin{equation}
  		\Combination{n}{k} = \frac{n!}{(n-k)!\times(k)!} \; \text{where n,k} \in \mathbb{N} \; \text{and} \; 1 \leq k \leq n
  	\end{equation}
@@ -360,11 +419,53 @@ If $(a - n//2) -m \geq 1$, the RHS will always be a positive integer and a consi
 	a &\geq (n//2+m+1) \label{tempAforYequals6-2}
 \end{align}
 Since the R.H.S is a positive integer it is always possible to get such a value of $a$ and thus $y$ can be obtained for the other extreme of $x$, as well.$\blacksquare$
+\section{Visualizing the relationship between x, y and a}\label{Visualization}
+For \eqref{yEqualsCase1}, \eqref{yEqualsCase2}, \eqref{yEqualsCase3}, \eqref{yEqualsCase4}, \eqref{yEqualsCase5} and \eqref{yEqualsCase6}, we can have plots, where for each plot $x$ (as contained in the term $n-k-x$) is on the abscissa while $y$ (as contained in the term $k+y$) is on ordinate for different values of $\Combination{n}{k}$ (with implicit $l$ or $m$ if applicable). The \textit{python3} code for these plots (Figure \ref{2Ck}-\ref{13Ck}) is given in appendix \ref{PythonCodeToGenerateGraph}. Let's take an example $\Combination{25}{7}$ and then expand on it further to summarise the 6 equations mentioned above. For the discussion in this sub-section, please refer to the Figure \ref{25_C_7_example}. 
+\paragraph{Visualizing $x$:}Each x is attached to a value in the denominator and the value of $x$ increases from left to right having the limits $0 \leq x \leq (n-k-1)$. Thus in the attached figure, the value of $x$ goes from $0$ to $(25-7-1)=17$. Using any value of $x$, a corresponding denominator term can be created by substituting the value of $x$ in $(n-k-x)$. For example a value of $x=6$ means that it corresponds to the denominator value of $25-7-6=12$.
+\paragraph{Visualizing $y$:}Each y is associated with a value in the numerator and the value of $y$ increases from bottom to top having the limits $1 \leq y \leq (n-k)$. Thus in the attached figure, the value of $y$ goes from $1$ to $(25-7)=18$. Using any value of $y$, a corresponding numerator term can be created by substituting the value of $y$ in $(k+y)$. For example a value of $y=17$ means that it corresponds to the numerator value of $7+17=24$.
+\paragraph{Visualizing $a$:}A particular \textbf{$a$} is generated by an intersection of a particular $x$ and $y$ and tells that a specific denominator (for a corresponding $x$), when multiplied by the value of \textbf{$a$} gives the corresponding $y$. For example, there is an intersection value of x=6 and y=17 with the value of \textbf{$a$} as 2. This can be construed as the following: $12$ (corresponding to $x=6$) when multiplied by \textbf{$a$}=2, gives $24$ (corresponding to $y=17$). Thus \textbf{$a$} is nothing but a multiple for a term in the denominator which gives a value in the numerator.
+\paragraph{Horizontal Picture:} For a particular horizontal row, we notice that all the dots (values of \textbf{$a$}) are different multiples of the right most number in that row. If we neglect the right most number, we realize that when the $n$'th term from the left (LTR\footnote{LTR is a direction left to right}) is multiplied by the $n$'th term from the right (RTL\footnote{RTL is a direction and denotes right to left}) gives the right most number. If a number is in the center then it should be multiplied by itself to get the right most number. \textit{e.g.} We can see that for $y=17$, we have terms $2, 3, 4, 6, 8, 12$ and the right most $24$. We realise that $2*12=24$, $3*8=24$ and $4*6=24$. Similarly for the value of $y=9$, we find that the numbers are $2, 4, 8$ and the right most $16$. Clearly $2*8=16$ and $4*4=16$.
+\paragraph{Vertical Picture:} For a particular vertical row, we notice that it corresponds to a denominator. The dots on the vertical line show, how many and which, numerator values will correspond to the particular value of denominator ($x$ for the vertical line). \textit{e.g.}, a value of $x=12$ will have three numerators which can contain potential multiples of the denominator corresponding to the value of $x$. Here for $x=12$, the value of $y$ are $5, 11, 17$. If we do the math we will find that this means that the denominator is $(25-7-12=6)$, will have multiples in $7+5=12$, $7+11=18$ and $7+17=24$.
+\paragraph{Calculation of a combination:}\label{ShortenedCalculation} We realise that calculations of a combination can be shortened.
+\begin{align*}
+ 		\Combination{n}{k} &= \frac{(n)\times(n-1)\cdots\times(k+1)\times\color{blue}(k)\times(k-1)\cdots\times3\times2\times1}{(n-k)\times(n-k-1)\cdots\times3\times2\times1\times\color{blue}(k)\times(k-1)\cdots\times3\times2\times1}\\
+ 		&= \frac{(n)\times(n-1)\cdots\times(k+1)}{(n-k)\times(n-k-1)\cdots\times3\times2\times1}\\
+ 		&=\frac{(n)\times(n-1)\cdots\times(n-k+1){\color{blue}\times(n-k)\times(n-k-1)\cdots(k+1)}}{{\color{blue}(n-k)\times(n-k-1)\cdots\times(k+1)}\times(k)\times(k-1)\cdots(3)\times(2)\times(1)} \\
+ 		&=\frac{(n)\times(n-1)\cdots\times(n-k+1)}{(k)\times(k-1)\cdots(3)\times(2)\times(1)}
+\end{align*}
+Using this information the calculated value of the combination is as below:
+\begin{align*}
+	\Combination{25}{7} &= \frac{25\times24\times23\times22\times21\times20\times19}{7\times6\times5\times4\times3\times2\times1} \\
+	&= 480700
+\end{align*}
+\paragraph{Locating the points on the graph for calculating the value of a combination:}In the light of the above discussion (\ref{ShortenedCalculation}), we realise the following. 
+\begin{enumerate}
+\item y axis can be divided in two parts: the top part corresponds to $(n)\cdots\times(n-k+1)$ while the lower part corresponds to $(n-k)\times(n-k-1)\cdots(k+1)$. Clearly as in condensed equation \ref{ShortenedCalculation} the lower part can be discarded and is denoted by red shaded box.
+\item   Similarly x axis can be divide in two parts: the left part corresponds to $(n-k)\times(n-k-1)\cdots\times(k+1)$ and the right part corresponds to $(k)\times(k-1)\cdots(3)\times(2)\times(1)$. Here, again the left part can be discarded (highlighted by red shaded box). 
+\item This leaves us with green and yellow shaded area for denominator and numerator respectively \ref{CalculationOfCombination}.
+\item  The steps of calculation, to get a value for combination, remain as defined before.
+\end{enumerate}
+
+\section{Delving deeper into the graphs}\label{Implications}
+Based on the images seen before it is clear that the values of $a$ for which an $x$ has a corresponding $y$ have a set of striking patterns if we analyze all $k$ combinations of $\Combination{n}{k}$ for a given $n$. 
+\begin{enumerate}
+	\item For a given $n$, graph is most dense for $\Combination{n}{1}$ and least dense for $\Combination{n}{n-1}$. In other words, maximum number of $a$ (and thus $x$ and $y$) points are present on the graph in the former case and least points are present on the graph in the later case.
+	\item Vertical lines can be drawn for each $x$ (which goes into the denominator term $(n-k-x)$). 
+	\item For $\Combination{n}{1}$, graph, the position of dots on the graph (a dot is a valid solution connecting $x$ and $y$ through a value of $a$), for any vertical line can be easily predicted. For the right most vertical line (equal to the value of $(n-\textbf{1}-1)$) for $x$, the dots start at the value of $2$ for the lowest value of $y=\textbf{1}$ and then keep incrementing by $1$ for every \textbf{$1$} position towards the top for a value of $(n-1)$ correspnding to the $y=(n-1)$. For the next left line (correspnding to the $(n-\textbf{2}-1)$), the dots start at the value of $1$ for the lowest value of $y=\textbf{2}$ and then keep incrementing at every \textbf{$2$} position by $1$. For the preceeding subsequent line at $(n-\textbf{3}-1)$, the dots start at the value of $1$ for the lowest value of $y=\textbf{3}$ and then keep incrementing at every \textbf{$3$} position. This pattern holds for every preceeding line. For a line at position $(n-\textbf{k}-1)$, the points start at the value of $1$ for the lowest value of $y=\textbf{k}$ and then keep incrementing at every \textbf{$k$} location by $1$.
+	\item Horizontal lines can be drawn for each $y$ (which goes into the numerator term $(k+y)$).
+	\item For $\Combination{n}{1}$, graph, the position of dots on the graph, for any horizontal line can be easily predicted. For a value of $y$ we consider $y+1$ and we find that the value of $a$ for the dots are nothing but the factors of $y+1$. Clearly prime numbers have no factors other than themselves and $1$.
+	\item As we go towards higher $k$ (starting from $1$ and go towards $(n-1)$) for the $\Combination{n}{k}$, the $\Combination{n}{1}$ graph shifts digonally (left and downwards) and terms outside the boundaries of $ 1 \leq y \leq (n-k)$ and $0 \leq x \leq (n-k-1)$ keep `falling off' the graph and `disappear'. This we can call as the `destruction picture' or `low-to-high picture'. Please see the movie (25\_C\_k\_264.mp4) by visiting and downloading/cloning URL \url{https://github.com/amit7urmc/CombinationsAndPrimes}.
+	\item As we go from higher to lower $k$ (starting from $(n-1)$ and towards 1) for the $\Combination{n}{k}$, the $\Combination{n}{1}$ graph shifts digonally (right and upwards) and terms within the boundaries of $ 1 \leq y \leq (n-k)$ and $0 \leq x \leq (n-k-1)$ keep `joining' the graph and `appear'. This we can call as the `construction picture' or `high-to-low picture'. Please see the movie (25\_C\_k\_reverse\_264.mp4) by visiting and downloading/cloning URL \url{https://github.com/amit7urmc/CombinationsAndPrimes}.
+	\item In either of the pictures (destruction or construction), we can pause at any $\Combination{n}{k}$ and we can calculate the value of combination as in \ref{Visualization}.
+	\end{enumerate} 
 \section{Conclusion}\label{Summary}
-This article discusses about $\Combination{n}{k}$, where if $n$ is even it can be written as $2*n//2$ (where $n//2$ is the integer part of division of $n$ by $2$) while it can be stated as $2*n//2+1$ if it is odd. Furthermore $k$, can take only three values: $(n//2), (n//2 - l) \text{ or } (n//2 + m)$, where $l$ and $m$ are positive integers greater than $1$, and they denote \textit{less} and \textit{more} respectively.\newline\newline
-The denominator is composed of product of $(n-k-x)$ terms, while the numerator is composed of products of $(k+y)$ terms, with the following constraints.\newline\newline
-$0 \leq x \leq (n-k-1)$\newline
-$1 \leq y \leq (n-k)$\newline
+This article discusses about $\Combination{n}{k}$, where if $n$ is even it can be written as $2*n//2$ (where $n//2$ is the integer part of division of $n$ by $2$) while it can be stated as $2*n//2+1$ if it is odd. Furthermore $k$, can take only three values: $(n//2), (n//2 - l) \text{ or } (n//2 + m)$, where $l$ and $m$ are positive integers greater than $1$, and they denote \textit{less} and \textit{more} respectively.
+
+The denominator is composed of product of $(n-k-x)$ terms, while the numerator is composed of products of $(k+y)$ terms, with the following constraints.
+
+$0 \leq x \leq (n-k-1)$
+
+$1 \leq y \leq (n-k)$
 
 With these premises we obtain the following relationship table between $y$ and $x$ (given $n$ and $k$). Please note that $l$ and $m$ need not be supplied and can always be calculated if $n$ and $k$ are given. However $l$ and $m$ must be known/calculated before using any of the below equations. Also, in the below table, the equation must be solved for all possible values of $\textbf{$a$}$ using the following algorithm.
 \begin{enumerate}
@@ -390,8 +491,11 @@ With these premises we obtain the following relationship table between $y$ and $
 	\hline
 	Odd & $n//2 + m$ (i.e. $k > n//2$)  & $y = (a-1)\times n//2 + a -m\times(a+1) - a\times x$ \\
 	\hline
-\end{tabular}\newline\newline
-There can be an equivalent table where all the $a$ terms are brought together. The below table can help find $a$ quicker since all other terms are known. We can keep increasing $a$ by $1$ so that $y$ stays in the range as per premise.\newline\newline
+\end{tabular}
+
+
+There can be an equivalent table where all the $a$ terms are brought together. The below table can help find $a$ quicker since all other terms are known. We can keep increasing $a$ by $1$ so that $y$ stays in the range as per premise.
+
 \begin{tabular}{|l ||l ||l|}
 	\hline
 	\textbf{$n$} & \textbf{$k$} & \textbf{$y$} \\
@@ -409,27 +513,16 @@ There can be an equivalent table where all the $a$ terms are brought together. T
 	Odd & $n//2 + m $ (i.e. $k > n//2$)  & $y = a \times (n//2-x-m +1 ) - n//2 -m $ \\
 	\hline
 \end{tabular}
-\subsection{Visualizing the relationship between x and y as in \ref{Summary}}
-For \eqref{yEqualsCase1}, \eqref{yEqualsCase2}, \eqref{yEqualsCase3}, \eqref{yEqualsCase4}, \eqref{yEqualsCase5} and \eqref{yEqualsCase6}, we can have plots, where for each plot $x$ is on the abscissa while $y$ is on ordinate for different values of $\Combination{n}{k}$ (with implicit $l$ or $m$ if applicable).
-The \textit{python3} code for these plots (Figure \ref{2Ck}-\ref{13Ck}) is given in appendix \ref{PythonCodeToGenerateGraph}.
-\section{Implications of the current work}
-In the light of analyzing the previous graphs some implications naturally follow. They are about factors and prime numbers contained within the range $1$ to $n$ and more importantly their generation process. We find, as below, that the process is not random rather it is simple and systematic.
-\subsection{Delving deeper into the graphs}\label{Implications}
-Based on the images seen before it is clear that the values of $a$ for which an $x$ has a corresponding $y$ have a set of striking patterns if we analyze all $k$ combinations of $\Combination{n}{k}$ for a given $n$. 
+\section{Other implications of the current work}
+In the light of analyzing the previous graphs, some implications naturally follow. They are about factors and prime numbers contained within the range $1$ to $n$ and more importantly their generation process. We find, as below, that the process is not random rather it is simple and systematic.	 
 \begin{enumerate}
-	\item For a given $n$, graph is most dense for $\Combination{n}{1}$ and least dense for $\Combination{n}{n-1}$. In other words, maximum number of $a$ (and thus $x$ and $y$) points are present on the graph in the former case and least points are present on the graph in the later case.
-	\item Vertical lines can be drawn for each $x$ (which goes into the denominator term $(n-k-x)$). 
-	\item For $\Combination{n}{1}$, graph, the position of dots on the graph (a dot is a valid solution connecting $x$ and $y$ through a value of $a$), for any vertical line can be easily predicted. For the right most vertical line (equal to the value of $(n-\textbf{1}-1)$) for $x$, the dots start at the value of $2$ for the lowest value of $y=\textbf{1}$ and then keep incrementing by $1$ for every \textbf{$1$} position towards the top for a value of $(n-1)$ correspnding to the $y=(n-1)$. For the next left line (correspnding to the $(n-\textbf{2}-1)$), the dots start at the value of $1$ for the lowest value of $y=\textbf{2}$ and then keep incrementing at every \textbf{$2$} position by $1$. For the preceeding subsequent line at $(n-\textbf{3}-1)$, the dots start at the value of $1$ for the lowest value of $y=\textbf{3}$ and then keep incrementing at every \textbf{$3$} position. This pattern holds for every preceeding line. For a line at position $(n-\textbf{k}-1)$, the points start at the value of $1$ for the lowest value of $y=\textbf{k}$ and then keep incrementing at every \textbf{$k$} location by $1$.
-	\item Horizontal lines can be drawn for each $y$ (which goes into the numerator term $(k+y)$).
-	\item For $\Combination{n}{1}$, graph, the position of dots on the graph, for any horizontal line can be easily predicted. For a value of $y$ we consider $y+1$ and we find that the value of $a$ for the dots are nothing but the factors of $y+1$. Clearly prime numbers have no factors other than themselves and $1$.
-	\item As we go towards higher $k$ (starting from $1$ and go towards $(n-1)$) for the $\Combination{n}{k}$, the $\Combination{n}{1}$ graph shifts digonally (left and downwards) and terms outside the boundaries of $ 1 \leq y \leq (n-k)$ and $0 \leq x \leq (n-k-1)$ keep `falling off' the graph and `disappear'. This we can call as the `destruction picture' or `low-to-high picture'. Please see the movie (25\_C\_k\_264.mp4) by visiting and downloading/cloning URL \url{https://github.com/amit7urmc/CombinationsAndPrimes}.
-	\item As we go from higher to lower $k$ (starting from $(n-1)$ and towards 1) for the $\Combination{n}{k}$, the $\Combination{n}{1}$ graph shifts digonally (right and upwards) and terms within the boundaries of $ 1 \leq y \leq (n-k)$ and $0 \leq x \leq (n-k-1)$ keep `joining' the graph and `appear'. This we can call as the `construction picture' or `high-to-low picture'. Please see the movie (25\_C\_k\_reverse\_264.mp4) by visiting and downloading/cloning URL \url{https://github.com/amit7urmc/CombinationsAndPrimes}.
-	\item In either of the pictures (destruction or construction), we can pause at any $\Combination{n}{k}$ and we can calculate the value of combination as follows: All the numbers on the right most vertical lines go in the numerator and then in each vertical line highest point is taken as the divisor and its correspnding right most number as the dividend. The result of this goes into the numerator for each vertical line (except the right most line). e.g. for $\Combination{25}{19}$, we can pause the construction/destruction picture there (or straightaway calculate the state using the code given in the appendix \ref{PythonCodeToGenerateGraph}) and we see that the right most vertical line consists of $25, 24, 23, 22, 21 \text{ and } 20$. There are $5$ vertical lines (except the right most). For the first vertical line in the left, the highest vertical point is $a=4$ and its corresponding right most point is $a=24$. So the first vertical line 'collapses' to $24/4=6$. The subsequent line to the right `collapses' to $25/5=5$ since the highest point is $a=5$ and its corresponding to the right most point $a=25$. Similarly we can get the remaining numbers as $24/6=4$, $24/8=3$ and $24/12=2$. All these $5$ numbers $(6,5,4,3 \text{ and } 2)$, go in the denominator and we get the answer as $\frac{25\times24\times23\times22\times21\times20}{6\times5\times4\times3\times2}=177100$, which is exactly what is the answer for $\Combination{25}{19}$. 
 	\item In the light of these images and in the hindsight, it is easy to see now that prime numbers do not appear, on the number-line, at random afterall! There is a definite and simple rule governing their appearance on the number line. To simplify the discussion and summary consider this analogy: 
-	\subitem In the beginning there is only one known prime in the list of primes i.e. [$2$] on the number line. 
-	\subitem Now each number (in the list of primes so far) hops one step on the integer number line. If for any prime number, the number of steps modulus the prime number itself is zero (i.e. if it is an exact multiple of that prime or logically $\text{[(number of steps )} \mod \text{(the particular prime number)]} == 0$), then we discard that number from the consideration of being a prime. However if for \textbf{all} numbers (in the list of primes till then) there is some remainder on modulus, then that means this \textbf{new step or the new number} is not a multiple of any known prime. Thus we have generated a prime number.
-	\subitem If in the above step we generate a prime then we add it to the list of known primes and the hopping continues until as long as desired. Before the subsequent hops, however, this newly generated prime number `joins' the hopping game by being included in the list of prime numbers.
-	\subitem Thus it seems that in this `hopping game' along the integer line, any new numbers is `spared' if it is an exact multiple of any known prime number till that step. However if all known prime numbers `desert' that number then this `new orphan' number `sprouts and comes into existence' and immediately joins the hopping game. There seems to be no end to this and this can continue indefinitely.
+	\begin{enumerate}
+	\item In the beginning there is only one known prime in the list of primes i.e. [$2$] on the number line. 
+	\item Now each number (in the list of primes so far) hops one step on the integer number line. If for any prime number, the number of steps modulus the prime number itself is zero (i.e. if it is an exact multiple of that prime or logically $\text{[(number of steps )} \mod \text{(the particular prime number)]} == 0$), then we discard that number from the consideration of being a prime. However if for \textbf{all} numbers (in the list of primes till then) there is some remainder on modulus, then that means this \textbf{new step or the new number} is not a multiple of any known prime. Thus we have generated a prime number.
+	\item If in the above step we generate a prime then we add it to the list of known primes and the hopping continues until as long as desired. Before the subsequent hops, however, this newly generated prime number `joins' the hopping game by being included in the list of prime numbers.
+	\item Thus it seems that in this `hopping game' along the integer line, any new numbers is `spared' if it is an exact multiple of any known prime number till that step. However if all known prime numbers `desert' that number then this `new orphan' number `sprouts and comes into existence' and immediately joins the hopping game. There seems to be no end to this and this can continue indefinitely.
+	\end{enumerate}
 	\item To prove this computationally, we downloaded first known 1000 primes from \url{https://t5k.org/lists/small/1000.txt}  and compared it against the primes generated by the algorithm mentioned above (see appendix \ref{PythonCodeToGeneratePrimes} for the \textit{python3} code). There is a perfect match!\label{PrimeNumberGeneration}
 	
 \end{enumerate}
@@ -772,6 +865,16 @@ if __name__ == "__main__":
 	\includegraphics[width=\linewidth]{13Ck.png}
 	\caption{Plot of $\Combination{13}{k}$}
 	\label{13Ck}									
+\end{figure}
+\begin{figure}[ph!]
+\includegraphics[width=\linewidth]{25_7_alone.png}
+\caption{Distribution of $x,y \text{ and } a$ in the graph of $\Combination{25}{7}$}
+\label{25_C_7_example}
+\end{figure}
+\begin{figure}[ph!]
+\includegraphics[width=\linewidth]{CalculationOfCombination.png}
+\caption{Showing set of numerator and denominator terms $\Combination{25}{7}$}
+\label{CalculationOfCombination}
 \end{figure}
 \begin{figure}[ph!]
 \includegraphics[width=\linewidth]{25_1_alone.png}
