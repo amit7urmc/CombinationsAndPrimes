@@ -24,7 +24,8 @@
 	 The concept of combination is crucial to layout groundwork for many fundamental sciences, finance and technical domains. Despite having countless empirical observations that a combination (for a `choosen n and k') is always a natural number, a direct proof (inductive or non-inductive) that a combination is always integral, is not rigorously demonstrated in the literature. This article discusses why a combination $\Combination{n}{k}$ will always be a natural number and never fractional or irrational. This article separates an $\Combination{n}{k}$ into mutually exclusive and collectively exhaustive cases and then shows for each case that any term in a denominator have at least one corresponding multiple in the numerator. All $k$ for a particular $n$ (for an $\Combination{n}{k}$) are visualized through plots to gain better understanding. In the context of the plots, this different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.
 	\section{Introduction}
 	From countless ages, it has been desired to know the number of ways an arrangement can be obtained or selected out of many possible ways. The quest has travelled from ancient times and has captured the imagination of the great mathematicians like Bhaskara-II\cite{wikipediaCombinatorics}, Blaise Pascal\cite{wikipediaPascal}, Pierre-de-Fermat\cite{wikipediaFermat}, Leonhard Euler\cite{wikipediaEuler} to name a very few.
-	\paragraph{}Permutations and Combinations have become fundamental concepts with wide ranging applications in almost every sphere of academic studies or technical endeavors. While a permutation, $\Permutation{n}{k}$, tells how many number of ways $k$ objects can be arranged out of $n$ objects, if we are interested in \textit{exact order of the choosen $k$ items} \cite{PrincTechCombinatorics}.
+	
+	Permutations and Combinations have become fundamental concepts with wide ranging applications in almost every sphere of academic studies or technical endeavors. While a permutation, $\Permutation{n}{k}$, tells how many number of ways $k$ objects can be arranged out of $n$ objects, if we are interested in \textit{exact order of the choosen $k$ items} \cite{PrincTechCombinatorics}.
 		\begin{equation}
 			\Permutation{n}{k} = \frac{n!}{(n-k)!}  \; \text{where n,k} \in \mathbb{N}  \; \text{and} \; 1 \leq k \leq n
 		\end{equation}
@@ -71,7 +72,9 @@
 	   	&= \frac{n!}{(n-k)!\times(k)!} \\
 	   	\therefore \Combination{n}{k} &= \Combination{n}{(n-k)}  
 	  \end{align*}
-	\paragraph{} The results (value of combinations) have been observed to be integers (empirically, over and over again based on calculation) for a particular choice of n and k. We can think of `indirect' proofs that show the combination is integral. \textit{e.g.} We have established above that a permutation, $\Permutation{n}{k}$, is integral. Now by the definition of equation \eqref{ConnectionBetweenPermutationAndCOmbination}, we can say the below:
+	  
+	  
+		The results (value of combinations) have been observed to be integers (empirically, over and over again based on calculations) for a particular choice of n and k. The focus of this paper is a proof that holds, irrespective of any choice of n and k, and one that transcends manual calculations everytime to show the integral nature. We can think of some known indirect proofs that `show' the combination is integral. \textit{e.g.} We have established above that a permutation, $\Permutation{n}{k}$, is integral. Now by the definition of equation \eqref{ConnectionBetweenPermutationAndCOmbination}, we can say the below:
 	\begin{align*}
 	   & \Permutation{n}{k} = \Combination{n}{k} \times (k)! \\
 	   & \because \text{ L.H.S. is known to be an integer (see equation \eqref{CondensedEquationPermutation}), the R.H.S must also be an integer and is shown below. } \\
@@ -80,25 +83,25 @@
 	\end{align*}
 	The proof looks promising but arguments like the below dent it. `\textbf{If}' the $(k)!$ is an even number \textbf{and} $\Combination{n}{k}$ is a fraction number of the nature $x.5 \text{ where $x$ can be any integer}$, then the multiplication of $\Combination{n}{k}\times (k)!$ will still be an integer. However it is trivial to see that the combination is definitely not integral in `this hypothetical' example.
 	
-	On similar lines, we can also make use of equation \eqref{InductiveCombination} and `\textbf{say}' that by induction on `n' the integrality of the combination `will' hold, subjected to the following conditions:
+	On similar lines, we can also make use of equation \eqref{InductiveCombination} and `\textbf{say}' that by induction on `n' the integrality of the combination `will' hold, subjected to the following base conditions:
 	\begin{itemize}
 	\item $\displaystyle \binom{n}{k} = 0 \text{ if $n < k$, premise-1}$
 	\item $\displaystyle \binom{n}{k} = 1 \text{ if $k=0$ or $k=n$, premise-2}$
 	\end{itemize}
-	In these inductive steps, all is fine, if $k \geq n$, since the answer is either 0 or 1. However as soon as $n > k$, we go ahead and assume for one of the two terms that it will be an integer. This is like putting the cart ahead of the horse since we set out to prove that $\Combination{n}{k} = \binom{n}{k}$, will always be an integer in the first place. Let us see below what we mean by this statement. Let's try to calculate $\binom{7}{3}$ using the induction by starting at $n=0$. We can calculate the final value easily `if we do the calculations manually' as below.
-	\begin{align}
-	 \binom{1}{3} &= \binom{0}{3} + \binom{0}{2} = 0 + 0 = 0 \text{   $\because  \binom{0}{k}=0$ } \\
-	 \binom{2}{3} &= \binom{1}{3} + \binom{1}{2} = 0 + 0 = 0 \\
-	 \binom{3}{3} &= \binom{2}{3} + \binom{2}{2} = 0 + 1 = 1 \text{   [$\binom{2}{2}=1 \because  \binom{n}{n}=1$, by premise-2] } \\
+	In these inductive steps, all is fine, if $k \geq n$, since the answer is either 0 or 1. However as soon as $n > k > 0$, we go ahead and assume for one of the two terms that it will be an integer. This is like putting the cart ahead of the horse since we set out to prove that $\Combination{n}{k} = \binom{n}{k}$, will always be an integer in the first place. Let us see below what we mean by this statement. Let's try to calculate $\Combination{7}{3}$ using the induction by starting at $n=0$. We can calculate the final value easily `if we do the calculations manually' as below.
+	\begin{align*}
+	 \binom{1}{3} &= \binom{0}{3} + \binom{0}{2} = 0 + 0 = 0 \text{   $\because  \binom{0}{k}=0$ } \textit{, by premise-1}\\
+	 \binom{2}{3} &= \binom{1}{3} + \binom{1}{2} = 0 + 0 = 0 \textit{, by premise-1}\\
+	 \binom{3}{3} &= \binom{2}{3} + \binom{2}{2} = 0 + 1 = 1 \text{   [$\binom{2}{2}=1 \because  \binom{n}{n}=1$,\textit{ by premise-2}] } \\
 	 \binom{4}{3} &= \binom{3}{3} + \binom{3}{2} = 1 + 3 = 4 \textit{ See the discussion in footnote for this and next 3 steps\footnotemark}\\
 	 \binom{5}{3} &= \binom{4}{3} + \binom{4}{2} = 4 + 6 = 10 \\
 	 \binom{6}{3} &= \binom{5}{3} + \binom{5}{2} = 10 + 10 = 20 \\
 	 \binom{7}{3} &= \binom{6}{3} + \binom{6}{2} = 20 + 15 = 35	 	  	 	 
-	\end{align}\footnotetext{To be sure that $\binom{3}{2}$ is an integer we have to calculate it, since this is outside base condition. Equality does not `necessarily' imply integer nature. This holds for $\binom{4}{3}, \binom{4}{2}, \binom{5}{2}, \binom{5}{3} \cdots$ and so on}
+	\end{align*}\footnotetext{To be sure that $\binom{3}{2}$ is an integer we have to calculate it, since this is outside the base condition. Equality ($\binom{4}{3} = \binom{3}{3} + \binom{3}{2}$) does not `necessarily' imply integer nature. This holds for $\binom{4}{2}, \binom{5}{2}, \binom{5}{3}, \binom{6}{3}, \binom{6}{2}, \binom{7}{3} \cdots$ and so on}
 	
-	$\Combination{7}{3}$ is indeed 35 but please note that the only thing we could be sure that the L.H.S will be equal to R.H.S. At no stage it was implicit that the R.H.S will be an integer once $n > k$ and since we were trying to prove that a combination is always integer, we cannot assume itself during our steps. We could have been in a better position if we could do simultaneous induction on $n$ and $k$ and show that $\Combination{n}{k}$ is an integer even if $n > k$. Thus we can conclude that a direct, inductive or non-inductive and algebraic, proof that the value of combination will `always' be an integer for `any choice of $n$ and $k$', is not `\textbf{explicitly}' stated.  
+	$\Combination{7}{3}$ is indeed 35 but please note that the only thing we could be sure that the L.H.S will be equal to R.H.S. At no stage it was implicit that the R.H.S will be an integer once $n > k > 0$ and since we were trying to prove that a combination is always integer, we cannot assume itself during our formative steps. Thus we can conclude that a direct, inductive or non-inductive and algebraic, proof that the value of combination will `always' be an integer for `any choice of $n$ and $k$', is not `\textbf{explicitly}' stated in the literature.  
 	
-	While a rigorous, inductive algebraic proof establishing that combinations are integral and only integral in nature, may prove to be hard, it should be possible to prove the same by non-inductive blocks of steps. This paper aims to fill the gap and demonstrate non-inductively and algebraically that the final value of a combination will `always collapse to an integer (more correctly a natural number)'. At the end of it we visualize our results through graphs and we find an interesting but also a simple connection with the generation process of factors and prime numbers contained within the range $1$ to $n$. We conclude this article by showing that prime numbers do not arise randomly but they have a simple and systematic generation algorithm. To show effectiveness of this algorithm we start with a \textbf{single prime number, 2,} and generate the first 1000 prime numbers. These \textbf{generated} 1000 primes match exactly the first 1000 \textbf{known} prime numbers.
+	While a rigorous, inductive algebraic proof establishing that combinations are integral and only integral in nature, may prove to be hard, it should be possible to prove the same by non-inductive blocks of steps. This paper aims to fill the gap and demonstrate non-inductively and algebraically that for each denominator term there is at least one term in the numerator that is a multiple of it. Thus all the terms in the denominator will be cancelled and the final value of a combination will `always collapse to an integer (more correctly a natural number)'. At the end of it we visualize our results through graphs and we find an interesting but also a simple connection with the generation process of factors and prime numbers contained within the range $1$ to $n$. We conclude this article by showing that prime numbers do not arise randomly but they have a simple and systematic generation algorithm. To show effectiveness of this algorithm we start with a \textbf{single prime number, 2,} and generate the first 1000 prime numbers. These \textbf{generated} 1000 primes match exactly the first 1000 \textbf{known} prime numbers.
 	\section{Proofs}
  	\subsection{Why Combination $\Combination{n}{k}$ is a natural number?}
  	Combination is the number of arrangements, when the order \textit{does not} matter and is given by \cite{PrincTechCombinatorics}:\newline
@@ -527,14 +530,178 @@ In the light of analyzing the previous graphs, some implications naturally follo
 	
 \end{enumerate}
 \bibliographystyle{unsrt} \bibliography{bibliography}
+\paragraph{Software used in this research work.}
+\begin{enumerate}
+\item \LaTeX was used for article writing.
+\item Python 3.10 was used as the programming languages
+\item Figures were generated with the help of Matplotlib (a Python library) and LibreOffice Impress.
+\end{enumerate}
 \begin{appendices}
 	\section{Code to generate the plots as in \ref{Summary}}\label{PythonCodeToGenerateGraph}
 	\begin{python}
-#!/usr/bin/python3
-from random import random
-from math import ceil, sqrt, nan
-import matplotlib.pyplot as plt 
+#!/use/bin/python
+"""
+This module visualizes the graphs for a particular combination nCk.
+create_chart_combination functions creates all x and y so that it can be plotted.
+There are two functions:
+(1) create_all_cases_graph: for all k(s) for a given n
+(2) create_one_case_graph: for a specific k for a given n
+There are 6 helper function depending n is even and if k has l or m.
+All the files are saved to the current directory.
+"""
+from math import ceil, sqrt
+from typing import Union
+import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
+
+## Constants. Please do not change
+GRAPH_TITLE = '$ ^{%d}C_{%d}$'
+TEXTCOORDS = 'offset pixels'
+##################################
+
+def helper_even_not_l_m(each_x:int,
+                        n:int,
+                        k:int,
+                        a:list[int],
+                        y: list[int],
+                        indiv_solution_params:list[tuple[Union[int,bool], Union[int,bool], Union[int,bool]]],
+                        starting_guess:int=1,
+                        l:bool=False,
+                        not_l_m:bool=True,
+                        m:bool=False)->None:
+    """
+    This function prepares y and individual params if n is even and both l amd m are zero for k.
+    """
+    while True:
+        y_ = (starting_guess-1)*n//2 - (starting_guess*each_x)
+        if y_ > (2*(n//2)-k):
+            break                    
+        if y_ >= 1:
+            a.append(starting_guess)
+            indiv_solution_params.append((l,not_l_m,m,starting_guess))
+        starting_guess += 1
+    y_s = list(map(lambda a_dash: (a_dash-1)*n//2 - (a_dash*each_x),a))
+    y.append(y_s)
+
+def helper_even_l(each_x:int,
+                        n:int,
+                        k:int,
+                        a:list[int],
+                        y: list[int],
+                        indiv_solution_params:list[tuple[Union[int,bool], Union[int,bool], Union[int,bool]]],
+                        starting_guess:int=1,
+                        l:bool=True,
+                        not_l_m:bool=False,
+                        m:bool=False)->None:
+    """
+    This function prepares y and individual params if n is even and m is zero for k but not l.
+    """    
+    while True:
+        y_ = (starting_guess-1)*(n//2) + l*(starting_guess+1) - (starting_guess*each_x)
+        if y_ > (2*(n//2)-k):
+            break
+        if y_ >= 1:
+            a.append(starting_guess)
+            indiv_solution_params.append((l,not_l_m,m,starting_guess))
+        starting_guess += 1
+    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2) +l*(a_dash+1) - (a_dash*each_x),a))
+    y.append(y_s)    
+
+def helper_even_m(each_x:int,
+                        n:int,
+                        k:int,
+                        a:list[int],
+                        y: list[int],
+                        indiv_solution_params:list[tuple[Union[int,bool], Union[int,bool], Union[int,bool]]],
+                        starting_guess:int=1,
+                        l:bool=False,
+                        not_l_m:bool=False,
+                        m:bool=True)->None:
+    """
+    This function prepares y and individual params if n is even and l is zero for k but not m.
+    """   
+    while True:
+        y_ = (starting_guess-1)*(n//2) -m*(starting_guess+1) - (starting_guess*each_x)
+        if y_ > (2*(n//2)-k):
+            break                    
+        if y_ >= 1:
+            a.append(starting_guess)
+            indiv_solution_params.append((l,not_l_m,m,starting_guess))
+        starting_guess += 1
+    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2) -m*(a_dash+1) - (a_dash*each_x),a))
+    y.append(y_s)    
+
+def helper_noteven_not_l_m(each_x:int,
+                        n:int,
+                        k:int,
+                        a:list[int],
+                        y: list[int],
+                        indiv_solution_params:list[tuple[Union[int,bool], Union[int,bool], Union[int,bool]]],
+                        starting_guess:int=1,
+                        l:bool=False,
+                        not_l_m:bool=True,
+                        m:bool=False)->None:
+    """
+    This function prepares y and individual params if n is odd and both l amd m are zero for k.
+    """    
+    while True:
+        y_ = (starting_guess-1)*(n//2) +starting_guess - (starting_guess*each_x)
+        if y_ > ((2*(n//2)+1)-k):
+            break                    
+        if y_ >= 1:
+            a.append(starting_guess)
+            indiv_solution_params.append((l,not_l_m,m,starting_guess))
+        starting_guess += 1
+    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash - (a_dash*each_x),a))
+    y.append(y_s)
+
+def helper_noteven_l(each_x:int,
+                        n:int,
+                        k:int,
+                        a:list[int],
+                        y: list[int],
+                        indiv_solution_params:list[tuple[Union[int,bool], Union[int,bool], Union[int,bool]]],
+                        starting_guess:int=1,
+                        l:bool=True,
+                        not_l_m:bool=False,
+                        m:bool=False)->None:
+    """
+    This function prepares y and individual params if n is odd and m is zero for k but not l.
+    """   
+    while True:
+        y_ = (starting_guess-1)*(n//2) +starting_guess + l*(starting_guess+1) - (starting_guess*each_x)
+        if y_ > ((2*(n//2)+1)-k):
+            break                    
+        if y_ >= 1:
+            a.append(starting_guess)
+            indiv_solution_params.append((l,not_l_m,m,starting_guess))
+        starting_guess += 1
+    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash +l*(a_dash+1) - (a_dash*each_x),a))
+    y.append(y_s)    
+
+def helper_noteven_m(each_x:int,
+                        n:int,
+                        k:int,
+                        a:list[int],
+                        y: list[int],
+                        indiv_solution_params:list[tuple[Union[int,bool], Union[int,bool], Union[int,bool]]],
+                        starting_guess:int=1,
+                        l:bool=False,
+                        not_l_m:bool=False,
+                        m:bool=True)->None:
+    """
+    This function prepares y and individual params if n is odd and l is zero for k but not m.
+    """ 
+    while True:
+        y_ = (starting_guess-1)*(n//2) +starting_guess -m*(starting_guess+1) - (starting_guess*each_x)
+        if y_ > ((2*(n//2)+1)-k):
+            break                    
+        if y_ >= 1:
+            a.append(starting_guess)
+            indiv_solution_params.append((l,not_l_m,m,starting_guess))
+        starting_guess += 1
+    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash -m*(a_dash+1) - (a_dash*each_x),a))
+    y.append(y_s)       
 
 def create_chart_combination(n: int, k:int)->list[list[int], list[int], list[int]]:
     """
@@ -556,8 +723,10 @@ def create_chart_combination(n: int, k:int)->list[list[int], list[int], list[int
     4. Solve for a(s) and y(s) for each x with restrain that 1 <= y <= (n-k).
     5. Return a list of three lists [x, y, a] # for plotting
     """
-    IS_EVEN = n%2 == 0
-    l, not_l_m, m = n//2-k if k < n//2 else None, n//2 if k==n//2 else None, k-n//2 if k > n//2 else None
+    is_even = n%2 == 0
+    l, not_l_m, m = n//2-k if k < n//2 else None, \
+                    n//2 if k==n//2 else None, \
+                    k-n//2 if k > n//2 else None
     x = list(range(0,n-k,1))
     y = []
     solution_params = []    
@@ -565,74 +734,26 @@ def create_chart_combination(n: int, k:int)->list[list[int], list[int], list[int
         a = []
         starting_guess = 1
         indiv_solution_params = []
-        if IS_EVEN:
+        if is_even:
             if not_l_m:
-                while True:
-                    y_ = (starting_guess-1)*n//2 - (starting_guess*each_x)
-                    if y_ > (2*(n//2)-k):
-                        break                    
-                    if y_ >= 1:
-                        a.append(starting_guess)
-                        indiv_solution_params.append((l,not_l_m,m,starting_guess))
-                    starting_guess += 1
-                y_s = list(map(lambda a_dash: (a_dash-1)*n//2 - (a_dash*each_x),a))
-                y.append(y_s)
+                helper_even_not_l_m(each_x, n, k, a, y,
+                                    indiv_solution_params, starting_guess, l, not_l_m, m)
             elif l:
-                while True:
-                    y_ = (starting_guess-1)*(n//2) + l*(starting_guess+1) - (starting_guess*each_x)
-                    if y_ > (2*(n//2)-k):
-                        break
-                    if y_ >= 1:
-                        a.append(starting_guess)
-                        indiv_solution_params.append((l,not_l_m,m,starting_guess))
-                    starting_guess += 1
-                y_s = list(map(lambda a_dash: (a_dash-1)*(n//2) +l*(a_dash+1) - (a_dash*each_x),a))
-                y.append(y_s)    
+                helper_even_l(each_x, n, k, a, y,
+                                    indiv_solution_params, starting_guess, l, not_l_m, m)
             elif m:
-                while True:
-                    y_ = (starting_guess-1)*(n//2) -m*(starting_guess+1) - (starting_guess*each_x)
-                    if y_ > (2*(n//2)-k):
-                        break                    
-                    if y_ >= 1:
-                        a.append(starting_guess)
-                        indiv_solution_params.append((l,not_l_m,m,starting_guess))
-                    starting_guess += 1
-                y_s = list(map(lambda a_dash: (a_dash-1)*(n//2) -m*(a_dash+1) - (a_dash*each_x),a))
-                y.append(y_s)  
+                helper_even_m(each_x, n, k, a, y,
+                                    indiv_solution_params, starting_guess, l, not_l_m, m)
         else:
             if not_l_m:
-                while True:
-                    y_ = (starting_guess-1)*(n//2) +starting_guess - (starting_guess*each_x)
-                    if y_ > ((2*(n//2)+1)-k):
-                        break                    
-                    if y_ >= 1:
-                        a.append(starting_guess)
-                        indiv_solution_params.append((l,not_l_m,m,starting_guess))
-                    starting_guess += 1
-                y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash - (a_dash*each_x),a))
-                y.append(y_s)
+                helper_noteven_not_l_m(each_x, n, k, a, y,
+                                    indiv_solution_params, starting_guess, l, not_l_m, m)
             elif l:
-                while True:
-                    y_ = (starting_guess-1)*(n//2) +starting_guess + l*(starting_guess+1) - (starting_guess*each_x)
-                    if y_ > ((2*(n//2)+1)-k):
-                        break                    
-                    if y_ >= 1:
-                        a.append(starting_guess)
-                        indiv_solution_params.append((l,not_l_m,m,starting_guess))
-                    starting_guess += 1
-                y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash +l*(a_dash+1) - (a_dash*each_x),a))
-                y.append(y_s)    
+                helper_noteven_l(each_x, n, k, a, y,
+                                    indiv_solution_params, starting_guess, l, not_l_m, m)
             elif m:
-                while True:
-                    y_ = (starting_guess-1)*(n//2) +starting_guess -m*(starting_guess+1) - (starting_guess*each_x)
-                    if y_ > ((2*(n//2)+1)-k):
-                        break                    
-                    if y_ >= 1:
-                        a.append(starting_guess)
-                        indiv_solution_params.append((l,not_l_m,m,starting_guess))
-                    starting_guess += 1
-                y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash -m*(a_dash+1) - (a_dash*each_x),a))
-                y.append(y_s) 
+                helper_noteven_m(each_x, n, k, a, y,
+                                    indiv_solution_params, starting_guess, l, not_l_m, m)
         solution_params.append(indiv_solution_params)
     returned_x = []
     returned_y = []
@@ -646,8 +767,10 @@ def create_chart_combination(n: int, k:int)->list[list[int], list[int], list[int
     returned_results = [returned_x, returned_y, returned_params]
     return returned_results
 
-def create_one_case_graph(n: int, k: int)->None:
-    max = n
+def create_one_case_graph(n: int, k: int, figure_path: None=None)->None:
+    """
+    Unlike the create_all_case_graphs, this function takes a specific n and k and create a graph.
+    """
     fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(12,12))
     ax.set_xlim(right=n+1)
     ax.set_xlim(left=-1)
@@ -659,18 +782,21 @@ def create_one_case_graph(n: int, k: int)->None:
     x, y, params = create_chart_combination(n,k)
     ax.scatter(x=x, y=y, c=[[0,0,0]], marker='o')
     ax.grid(which='both')
-    ax.set_title('$ ^{%d}C_{%d}$'%(n,k))
+    ax.set_title(GRAPH_TITLE%(n,k))
     for data_index, _ in enumerate(params):
         param = _
         annotation = f"a={param[3]}"
         xy = (x[data_index], y[data_index])
-        ax.annotate(annotation, xy=xy, xytext=(10,-20),textcoords='offset pixels')
+        ax.annotate(annotation, xy=xy, xytext=(10,-20),textcoords=TEXTCOORDS)
     ax.set_xlabel('x as in denominator (n-k-x)')
     ax.set_ylabel('y as in numerator (k+y)')
-    fig.savefig(f'./{n}_{k}_alone.png')
+    if figure_path:
+        fig.savefig(f'{figure_path}/{n}_{k}_alone.png')
+    else:
+        fig.savefig(f'./{n}_{k}_alone.png')
     plt.close()
 
-def create_all_cases_graph(n: list[int, int])->None:
+def create_all_cases_graph(n: list[int, int], figure_path:None=None)->None:
     """
     Supplied one even and one add number. 0th index should be even while 1st index should be odd.
     """
@@ -689,21 +815,26 @@ def create_all_cases_graph(n: list[int, int])->None:
         x, y, params = create_chart_combination(n[0],k)
         axs1[counter][k%int(ceil(sqrt(n[0])))].scatter(x=x, y=y, c=[[0,0,0]], marker=markers[k%(len(markers)-1)])
         axs1[counter][k%int(ceil(sqrt(n[0])))].grid(which='both')
-        axs1[counter][k%int(ceil(sqrt(n[0])))].set_title('$ ^{%d}C_{%d}$'%(n[0],k))
+        axs1[counter][k%int(ceil(sqrt(n[0])))].set_title(GRAPH_TITLE%(n[0],k))
         for data_index, _ in enumerate(params):
             param = _
             annotation = f"a={param[3]}"
             xy = (x[data_index], y[data_index])
-            axs1[counter][k%int(ceil(sqrt(n[0])))].annotate(annotation, xy=xy, xytext=(10,-10),textcoords='offset pixels')
+            axs1[counter][k%int(ceil(sqrt(n[0])))].annotate(annotation, xy=xy, xytext=(10,-10),textcoords=TEXTCOORDS)
     fig.suptitle("Graph for various nCk, where n is even")
     fig.supxlabel("x as in denominator (n-k-x)")
     fig.supylabel("y as in numerator (k+y)")
-    
+    if figure_path:
+        fig.savefig(f"{figure_path}/{n[0]}Ck.png")
+    else:
+        fig.savefig(f"./{n[0]}Ck.png")
+
     fig, axs2 = plt.subplots(nrows=int(ceil(sqrt(n[1]))),ncols=int(ceil(sqrt(n[1]))), sharey=True, sharex=True)
     for axs_row in axs2:
         for axs_col in axs_row:
             axs_col.yaxis.set_major_locator(MaxNLocator(integer=True, min_n_ticks=1))
-            axs_col.xaxis.set_major_locator(MaxNLocator(integer=True, min_n_ticks=1))    
+            axs_col.xaxis.set_major_locator(MaxNLocator(integer=True, min_n_ticks=1))
+
     ## Draw for odd numbers
     counter = 0
     for k in range(1,n[1],1):
@@ -712,20 +843,24 @@ def create_all_cases_graph(n: list[int, int])->None:
         x, y, params = create_chart_combination(n[1],k)
         axs2[counter][k%int(ceil(sqrt(n[1])))].scatter(x=x, y=y, c=[[0,0,0]], marker=markers[k%(len(markers)-1)])
         axs2[counter][k%int(ceil(sqrt(n[1])))].grid(which='both')
-        axs2[counter][k%int(ceil(sqrt(n[1])))].set_title('$ ^{%d}C_{%d}$'%(n[1],k))
+        axs2[counter][k%int(ceil(sqrt(n[1])))].set_title(GRAPH_TITLE%(n[1],k))
         for data_index, _ in enumerate(params):
             param = _
             annotation = f"a={param[3]}"
             xy = (x[data_index], y[data_index]) 
-            axs2[counter][k%int(ceil(sqrt(n[1])))].annotate(annotation, xy=xy, xytext=(10,-10),textcoords='offset pixels')       
+            axs2[counter][k%int(ceil(sqrt(n[1])))].annotate(annotation, xy=xy, xytext=(10,-10),textcoords=TEXTCOORDS)      
     fig.suptitle("Graph for various nCk, where n is odd")
     fig.supxlabel("x as in denominator (n-k-x)")
     fig.supylabel("y as in numerator (k+y)")
 
-    plt.show()        
+    if figure_path:
+        fig.savefig(f"{figure_path}/{n[1]}Ck.png")
+    else:
+        fig.savefig(f"./{n[1]}Ck.png")
+    plt.close()       
 
 
-                    
+                   
 if __name__ == "__main__":
     create_all_cases_graph([2,3])
     create_all_cases_graph([4,5])
@@ -733,62 +868,72 @@ if __name__ == "__main__":
     create_all_cases_graph([8,9])
     create_all_cases_graph([10,11])  
     create_all_cases_graph([12,13])
-    
-    n=25
-    for k in range(1,n,1):
-        create_one_case_graph(n, k)      
+   
+    N=25
+    for k_ in range(1,N,1):
+        create_one_case_graph(N, k_)
 	\end{python}
 	\section{Code to generate the prime numbers (as discussed in section \ref{Implications} and item number \ref{PrimeNumberGeneration})}\label{PythonCodeToGeneratePrimes}
 	\begin{python}
-#!/usr/bin/python3
-class generatePrime:
+#!/use/bin/python
+import os
+"""
+This module generates prime numbers and the idea is inspired by the acccompanying PDF.
+"""
+class GeneratePrime:
+    """
+    This class can be used to create prime numbers as per the algorithm in the accompanying PDF.
+    """
 
-    def __init__(self, fileToWrite: str="./primeListGenerated.txt")-> None:
+    def __init__(self, file_to_write: str="./primeListGenerated.txt")-> None:
         """
         A list of prime numbers discovered and their current steps. 
         To save computing the length in every iteration the list length is also maintained.
-        fileToWrite is a file where generated prime numbers are saved.
+        file_to_write is a file where generated prime numbers are saved.
         """
-        self.primeNumbersDiscovered = [2]
-        self.runningNumber = 2
-        self.primeNumbersDiscoveredListLength = 1
-        self.fileToWrite = fileToWrite
+        self.prime_numbers_discovered = [2]
+        self.running_numbers = 2
+        self.prime_numbers_discovered_list_length = 1
+        self.file_to_write = file_to_write
 
     def yield_prime(self, upto_n:int)->None:
         """
         upto_n denotes how many prime numbers need to be written to the file.
         """
-        with open(self.fileToWrite,"w") as fileHandle:
-            fileHandle.write("primeNumbersGenerated")
-            fileHandle.write("\n2")
+        with open(self.file_to_write,"w", encoding='utf-8') as file_handle:
+            file_handle.write("primeNumbersGenerated")
+            file_handle.write("\n2")
             counter = 0
             while True:
-                skipFlag = False
-                self.runningNumber += 1
-                for i in range(self.primeNumbersDiscoveredListLength):
-                    if not self.runningNumber%self.primeNumbersDiscovered[i]:
-                        skipFlag = True
+                skip_flag = False
+                self.running_numbers += 1
+                for i in range(self.prime_numbers_discovered_list_length):
+                    if not self.running_numbers%self.prime_numbers_discovered[i]:
+                        skip_flag = True
                         break
 
-                if not skipFlag:
-                    self.primeNumbersDiscovered.append(self.runningNumber)
-                    self.primeNumbersDiscoveredListLength += 1
-                    fileHandle.write(f"\n{self.runningNumber}")
+                if not skip_flag:
+                    self.prime_numbers_discovered.append(self.running_numbers)
+                    self.prime_numbers_discovered_list_length += 1
+                    file_handle.write(f"\n{self.running_numbers}")
                     counter += 1
                 if counter >= upto_n-1:
                     break
-    
+
     def compare_against_known_result(self, know_result_file:str="./PrimeNumbersTop1000.txt")->bool:
         """
         A known result file is taken as input. 
-        Care must be taken that it has at least same number of primes as the upto_n parameter in the yield_prime method.
+        Care must be taken that it has at least same number of primes 
+        as the upto_n parameter in the yield_prime method.
         """
         present_absent = None
-        with open(know_result_file, "r") as knownHandle, open(self.fileToWrite,"r") as calculateddHandle:
-            knownResult = knownHandle.readlines()[1:]
-            calculatedResult = calculateddHandle.readlines()[1:]
-            assert len(knownResult) == len(calculatedResult)
-            present_absent = [True if knownResult[i]==calculatedResult[i] else False for i in range(len(knownResult))]
+        with open(know_result_file, "r", encoding='utf-8') as known_handle, \
+             open(self.file_to_write, "r", encoding='utf-8') as calculated_handle:
+            known_result = known_handle.readlines()[1:]
+            calculated_result = calculated_handle.readlines()[1:]
+            assert len(known_result) == len(calculated_result)
+            present_absent = [known_result[i]==calculated_result[i] \
+                              for i in range(len(known_result))]
         if all(present_absent):
             return True
         return False
@@ -796,13 +941,15 @@ class generatePrime:
 
 
 if __name__ == "__main__":
-    upto_n = 1000
-    full_match_str = "full_match"
-    some_mismatch_str = "some_mismatch"
-    primeObj = generatePrime()
-    primeObj.yield_prime(upto_n)
-    full_match = primeObj.compare_against_known_result()
-    print(f"We tried to match first known {upto_n} primes with those generated by this program. The answer is {full_match_str if full_match else some_mismatch_str}")
+    UPTO_N = 1000
+    FULL_MATCH_STR = "full_match"
+    SOME_MISMATCH_STR = "some_mismatch"
+    CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+    primeObj = GeneratePrime(f"{CURRENT_DIR}/primeListGenerated.txt")
+    primeObj.yield_prime(UPTO_N)
+    FULL_MATCH = primeObj.compare_against_known_result(f"{CURRENT_DIR}/PrimeNumbersTop1000.txt")
+    print(f"We tried to match first known {UPTO_N} primes with those generated by this program. \
+    The answer is {FULL_MATCH_STR if FULL_MATCH else SOME_MISMATCH_STR}")
 	\end{python}	
 	This code is also available in github \url{https://github.com/amit7urmc/CombinationsAndPrimes}.
 \section{Figures}
