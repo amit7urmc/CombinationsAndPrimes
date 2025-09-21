@@ -16,12 +16,13 @@
 \usepackage{float}
 \usepackage{url}
 \newcommand*{\Permutation}[2]{{}^{#1}P_{#2}}%
-\newcommand*{\Combination}[2]{{}^{#1}C_{#2}}%
+\newcommand*{\Combination}[2]{\binom{#1}{#2}}%
 \newcommand\bypassurl[1]{\textbf{URL:} \textit{#1}}
+\newcommand{\floordivision}[2]{\left\lfloor \frac{#1}{#2} \right\rfloor}
 \begin{document}
 	\maketitle
 	\section{Abstract}
-	 The concept of combination is crucial to layout groundwork for many fundamental sciences, finance and technical domains. This article discusses why a combination $\Combination{n}{k}$ will always be a natural number and never fractional or irrational. This article separates an $\Combination{n}{k}$ into mutually exclusive and collectively exhaustive cases and then shows for each case that any term in a denominator have at least one corresponding multiple in the numerator. All $k$ for a particular $n$ (for an $\Combination{n}{k}$) are visualized through plots to gain better understanding. In the context of the plots, this different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.
+	 The concept of combination is crucial to layout groundwork for many fundamental sciences, finance and technical domains. There are multiple known methods to show that the combination (binomial coefficient) is integral in nature. This article approaches the same concept with simple non-inductive algebraic steps that can be followed by a wide range of audiences. This article separates an $\Combination{n}{k}$ into mutually exclusive and collectively exhaustive cases and then shows for each case that any term in a denominator have at least one corresponding multiple in the numerator. All $k$ for a particular $n$ (for an $\Combination{n}{k}$) are visualized through plots to gain better understanding. In the context of the plots, this different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.
 	\section{Introduction}
 	From countless ages, it has been desired to know the number of ways an arrangement can be obtained or selected out of many possible ways.
 	
@@ -40,7 +41,7 @@
 	 	
 	 	Combination, $\Combination{n}{k}$ represents number of ways $k$ elements out of $n$ can be choosen, \textit{without any regard to order between the choosen items} \cite{PrincTechCombinatorics}. Below are equivalent representations of a combination.
 	\begin{align}
-	\Combination{n}{k} &= \binom{n}{k} = C(n, k)  \\
+	\Combination{n}{k} &= {}^nC_k = C(n, k)  \\
 					   &= \frac{\color{blue}\Permutation{n}{k}}{k!} \label{ConnectionBetweenPermutationAndCOmbination}\\	
 					   &= \frac{\color{blue}n!}{{\color{blue}(n-k)!}\times(k)!} \label{FractionalDefinitionOfCombination}
 	\end{align} 
@@ -62,34 +63,35 @@
  	\Combination{n}{k} = \frac{(n)\times(n-1)\cdots\times(k+2)\times(k+1)}{(n-k)\times(n-k-1)\cdots\times3\times2\times1} \label{reducedCombinationForm}
  \end{equation}
 \subsubsection{Different possible values of $n$ and $k$ w.r.t each other.}
- If $n//2$ is defined as integer portion of division of $n$ by $2$, then we can see that one of the two statements, below, must be true:
+ If $\floordivision{n}{2}$ is defined as integer portion of division of $n$ by $2$, then we can see that one of the two statements, below, must be true:
  \begin{align}
- 	n &= (n//2 \times 2) \; \text{where $n$ is an even number} \label{nIsEven}\\
- 	n &= (n//2 \times 2) + 1 \; \text{where $n$ is an odd number} \label{nIsOdd}
+ 	n &= (\floordivision{n}{2} \times 2) \; \text{where $n$ is an even number} \label{nIsEven}\\
+ 	n &= (\floordivision{n}{2} \times 2) + 1 \; \text{where $n$ is an odd number} \label{nIsOdd}
  \end{align}
 On a similar note, $k$ can be defined as six and six only possibilities w.r.t $n$:
 \begin{align}
-	k &= n//2 \; \text{where $n$ is an even number }\label{kEqualsCase1}\\
-	k &= n//2 - l \; \text{where $n$ is an even number and } l \in \mathbb{N} , 1 \leq l \leq n//2 \label{kEqualsCase2}\\
-	k &= n//2 + m \; \text{where $n$ is an even number and } m \in \mathbb{N} , 1 \leq m \leq n//2 \label{kEqualsCase3}\\
-	k &= n//2 \; \text{where $n$ is an odd number }\label{kEqualsCase4}\\
-	k &= n//2 - l \; \text{where $n$ is an odd number and } l \in \mathbb{N} , 1 \leq l \leq (n-1)/2 \label{kEqualsCase5}\\
-	k &= n//2 + m \; \text{where $n$ is an odd number and } m \in \mathbb{N} , 1 \leq m \leq (n+1)/2) \label{kEqualsCase6}		
+	k &= \floordivision{n}{2} \; \text{where $n$ is an \textbf{even number} }\label{kEqualsCase1}\\
+	k &= \floordivision{n}{2} - l \; \text{where $n$ is an even number and } l \in \mathbb{N} , 1 \leq l \leq \floordivision{n}{2} \label{kEqualsCase2}\\
+	k &= \floordivision{n}{2} + m \; \text{where $n$ is an even number and } m \in \mathbb{N} , 1 \leq m \leq \floordivision{n}{2} \label{kEqualsCase3}\\
+	\cline{1-2}
+	k &= \floordivision{n}{2} \; \text{where $n$ is an \textbf{odd number} }\label{kEqualsCase4}\\
+	k &= \floordivision{n}{2} - l \; \text{where $n$ is an odd number and } l \in \mathbb{N} , 1 \leq l \leq (n-1)/2 \label{kEqualsCase5}\\
+	k &= \floordivision{n}{2} + m \; \text{where $n$ is an odd number and } m \in \mathbb{N} , 1 \leq m \leq (n+1)/2) \label{kEqualsCase6}		
 \end{align}
 Let us take a few concrete examples to understand the equations from equation \eqref{nIsEven} to equation \eqref{kEqualsCase6}.\newline\newline
-$\Combination{10}{0}$ means $n$ is even, $k = 0$ and $l=n//2=5$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase2} are realized.\newline
-$\Combination{10}{2}$ means n is even, $k = 2$ and $l=3$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase2} are realized.\newline
+$\Combination{10}{0}$ means $n$ is even, $k = 0$ and $l=\floordivision{n}{2}=5$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase2} are realized.\newline\newline
+$\Combination{10}{2}$ means n is even, $k = 2$ and $l=3$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase2} are realized.\newline\newline
 $\Combination{10}{4}$ means $n$ is even, $k = 4$ and $l=1$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase2} are realized.\newline\newline
-$\Combination{10}{5}$ means $n$ is even and $k = n//2 = 5$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase1} are realized.\newline\newline
-$\Combination{10}{6}$ means $n$ is even, $k = 6$ and $m=1$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase3} are realized.\newline
-$\Combination{10}{8}$ means $n$ is even, $k = 8$ and $m=3$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase3} are realized.\newline
-$\Combination{10}{10}$ means $n$ is even, $k = 10$ and $m= n//2=5$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase3} are realized.\newline\newline
-$\Combination{11}{0}$ means $n$ is odd, $k = 0$ and $l=(n-1)/2=5$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase5} are realized.\newline
-$\Combination{11}{2}$ means n is odd, $k = 2$ and $l=3$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase5} are realized.\newline
+$\Combination{10}{5}$ means $n$ is even and $k = \floordivision{n}{2} = 5$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase1} are realized.\newline\newline
+$\Combination{10}{6}$ means $n$ is even, $k = 6$ and $m=1$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase3} are realized.\newline\newline
+$\Combination{10}{8}$ means $n$ is even, $k = 8$ and $m=3$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase3} are realized.\newline\newline
+$\Combination{10}{10}$ means $n$ is even, $k = 10$ and $m= \floordivision{n}{2}=5$: Thus equations \eqref{nIsEven} and \eqref{kEqualsCase3} are realized.\newline\newline
+$\Combination{11}{0}$ means $n$ is odd, $k = 0$ and $l=(n-1)/2=5$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase5} are realized.\newline\newline
+$\Combination{11}{2}$ means n is odd, $k = 2$ and $l=3$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase5} are realized.\newline\newline
 $\Combination{11}{4}$ means $n$ is odd, $k = 4$ and $l=1$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase5} are realized.\newline\newline
-$\Combination{11}{5}$ means $n$ is odd and $k = n//2 = 5$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase4} are realized.\newline\newline
-$\Combination{11}{6}$ means $n$ is odd, $k = 6$ and $m=1$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase6} are realized.\newline
-$\Combination{11}{8}$ means $n$ is odd, $k = 8$ and $m=3$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase6} are realized.\newline
+$\Combination{11}{5}$ means $n$ is odd and $k = \floordivision{n}{2} = 5$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase4} are realized.\newline\newline
+$\Combination{11}{6}$ means $n$ is odd, $k = 6$ and $m=1$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase6} are realized.\newline\newline
+$\Combination{11}{8}$ means $n$ is odd, $k = 8$ and $m=3$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase6} are realized.\newline\newline
 $\Combination{11}{11}$ means $n$ is odd, $k = 11$ and $m= (n+1)/2=6$: Thus equations \eqref{nIsOdd} and \eqref{kEqualsCase6} are realized.\newline\newline
 We can clearly see based on equations \eqref{kEqualsCase1} to \eqref{kEqualsCase6} that there are six possibilities that we separately need to take care and prove. In the following subsections, \ref{ProofkEqualsCase1} to \ref{ProofkEqualsCase6}, we will prove each of the above condition.
 \subsubsection{Setting up the problem}\label{settingUpTheProblem}
@@ -105,11 +107,11 @@ Now we have to show that for every $(n-k-x)$, there exists a natual number \text
 \subsubsection{$\Combination{n}{k}$ is always a natural number when equation \eqref{nIsEven} and \eqref{kEqualsCase1} hold true}\label{ProofkEqualsCase1}
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
-	a \times (2\times n//2 - n//2 -x) &= (n//2+y) \nonumber \\
-	a \times(n//2 -x) &= (n//2 + y) \nonumber \\
-	a &= \frac{(n//2+y)}{(n//2-x)} \nonumber\\
-	y &= a\times(n//2-x) - n//2 \nonumber \\
-	y &= (a-1)\times n//2 - a\times x \label{yEqualsCase1}
+	a \times (2\times \floordivision{n}{2} - \floordivision{n}{2} -x) &= (\floordivision{n}{2}+y) \nonumber \\
+	a \times(\floordivision{n}{2} -x) &= (\floordivision{n}{2} + y) \nonumber \\
+	a &= \frac{(\floordivision{n}{2}+y)}{(\floordivision{n}{2}-x)} \nonumber\\
+	y &= a\times(\floordivision{n}{2}-x) - \floordivision{n}{2} \nonumber \\
+	y &= (a-1)\times \floordivision{n}{2} - a\times x \label{yEqualsCase1}
 \end{align}
 Let us take a couple of examples. \newline
 For $\Combination{10}{5} \text{ and } x = 1$ we get the solution as below
@@ -126,27 +128,27 @@ For $\Combination{10}{5} \text{ and } x = 3$ we get the solution as below
 	y &= a \times 2 - 5 \\
 \end{align*}
 Clearly if $a = 3$ we get a valid solution and then $y=1$. This result can be interpreted as before. This means that for the denominator $(n-k-x) = (10-5-3) = 2$, we will get a corresponding numerator which will have its factor as $(k+y) = (5+1) = 6$. This is also consistent.\newline
-For \eqref{yEqualsCase1}, we know that $x \in \mathbb{W}, 0 \leq x \leq (n-k-1)$ and $y \in \mathbb{N}, 1 \leq y \leq (n-k)$. These two conditions get simplified due to \eqref{kEqualsCase1} as $0 \leq x \leq (n//2-1)$. Let us put extreme conditions of $x$ to see if we can obtain a valid \textbf{$a$} for the denominator for every $y$.
+For \eqref{yEqualsCase1}, we know that $x \in \mathbb{W}, 0 \leq x \leq (n-k-1)$ and $y \in \mathbb{N}, 1 \leq y \leq (n-k)$. These two conditions get simplified due to \eqref{kEqualsCase1} as $0 \leq x \leq (\floordivision{n}{2}-1)$. Let us put extreme conditions of $x$ to see if we can obtain a valid \textbf{$a$} for the denominator for every $y$.
 \begin{align*}
-	y &= (a-1)\times n//2 - a\times 0 \text{ this is due to \eqref{yEqualsCase1}} \\
-	y &= (a-1)\times n//2
+	y &= (a-1)\times \floordivision{n}{2} - a\times 0 \text{ this is due to \eqref{yEqualsCase1}} \\
+	y &= (a-1)\times \floordivision{n}{2}
 \end{align*}
 Clearly an a can be choosen such that R.H.S is a natural number. Similarly we can say that,
 \begin{align*}
-	y &= (a-1)\times n//2 - a\times (n//2-1) \text{ this is due to \eqref{yEqualsCase1}} \\
-	y &= \cancel{a\times n//2} - n//2 -\cancel{a\times n//2} +a \\	
-	y &= a - n//2
+	y &= (a-1)\times \floordivision{n}{2} - a\times (\floordivision{n}{2}-1) \text{ this is due to \eqref{yEqualsCase1}} \\
+	y &= \cancel{a\times \floordivision{n}{2}} - \floordivision{n}{2} -\cancel{a\times \floordivision{n}{2}} +a \\	
+	y &= a - \floordivision{n}{2}
 \end{align*}
 Clearly an \textbf{$a$} can be choosen such that R.H.S is a natural number. Thus we saw that an $a$ is available in the range of extreme $x$ values and thus we always have an \textbf{$a$} so that every denominator is a factor for some numerator.$\blacksquare$
 \subsubsection{$\Combination{n}{k}$ is always a natural number when equation \eqref{nIsEven} and \eqref{kEqualsCase2} hold true}\label{ProofkEqualsCase2}
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
-	a \times (2\times n//2 - n//2 + l - x) &= (n//2 - l + y) \nonumber \\
-	a &= \frac{(n//2 - l + y)}{(n//2 + l - x)} \nonumber \\
-	y &= (a-1)\times n//2 + l \times (a+1) - a\times x \label{yEqualsCase2}	
+	a \times (2\times \floordivision{n}{2} - \floordivision{n}{2} + l - x) &= (\floordivision{n}{2} - l + y) \nonumber \\
+	a &= \frac{(\floordivision{n}{2} - l + y)}{(\floordivision{n}{2} + l - x)} \nonumber \\
+	y &= (a-1)\times \floordivision{n}{2} + l \times (a+1) - a\times x \label{yEqualsCase2}	
 \end{align}
 How do we interpret this? Let us see an example. \newline
-$\Combination{10}{4}$. Here $n = 10$ and thus $n//2 = 5, k = 4, l = n//2 - k = 5 -4 = 1$. Furthermore let us assume that $x = 1$, i.e. the denominator is $(n-k-1)$ for which the factor containing numerator has to be found.\newline
+$\Combination{10}{4}$. Here $n = 10$ and thus $\floordivision{n}{2} = 5, k = 4, l = \floordivision{n}{2} - k = 5 -4 = 1$. Furthermore let us assume that $x = 1$, i.e. the denominator is $(n-k-1)$ for which the factor containing numerator has to be found.\newline
 Putting the above values in \eqref{yEqualsCase2}, we get
 $y = (a-1)5+1(a+1)-a\times 1 = (a-1)5+1$\newline
 Clearly $a = 2$ will solve the equation which is consistent with restrictions on $y$ and the value of $y$ will be $y=(2-1)\times5 + 1=6$. That means the corresponding multiples will reside in the numerator $(k+y)=(k+6)$.\newline
@@ -167,34 +169,34 @@ We will have an addditional example as $\Combination{10}{4}$ and $x = 3$. i.e. t
 \end{align}
 Now according to \eqref{denominator}, 
 \begin{align}
-	0 \leq x \leq (n-k-1) &= 0 \leq x \leq (2\times n//2-n//2+l-1) \nonumber \\
-	&= 0 \leq x \leq (n//2+l-1) \label{LimitOfXforYEqualsCase2}
+	0 \leq x \leq (n-k-1) &= 0 \leq x \leq (2\times \floordivision{n}{2}-\floordivision{n}{2}+l-1) \nonumber \\
+	&= 0 \leq x \leq (\floordivision{n}{2}+l-1) \label{LimitOfXforYEqualsCase2}
 \end{align}
 We will show that the equations are consistent at the extremes of $x$ and therefore must be true for other values of $x$ in between.\newline
 Choosing $x=0$ in the equation \eqref{yEqualsCase2}, we get
 \begin{align*}
-	y &= (a-1)\times n//2 + l \times (a+1) - a\times x \\
-	y &= (a-1)\times n//2 + l \times (a+1) - a\times 0 \\
-	y &= (a-1)\times n//2 + l \times (a+1)
+	y &= (a-1)\times \floordivision{n}{2} + l \times (a+1) - a\times x \\
+	y &= (a-1)\times \floordivision{n}{2} + l \times (a+1) - a\times 0 \\
+	y &= (a-1)\times \floordivision{n}{2} + l \times (a+1)
 \end{align*}
 Since $l$ is $a \in \mathbb{N}$, so the minimum value $l$ can have is $1$. Thus the second term in the R.H.S. above will be positive. To make $y$ as positive integer, there is always a value of $a$ we can choose to satisfy this restriction.\newline
-At the other extreme, choosing $x=(n//2+l-1)$, we get the below.
+At the other extreme, choosing $x=(\floordivision{n}{2}+l-1)$, we get the below.
 \begin{align*}
-	y &= (a-1)\times n//2 + l \times (a+1) - a\times (n//2+l-1) \\
-	y &= a\times n//2 - n//2 +l\times a +l -a\times n//2-a\times\ l + a \\
-	y &= \cancel{a\times n//2} - n//2 +\cancel{l\times a} +l -\cancel{a\times n//2}-\cancel{a\times\ l} + a \\
-	y &= a - n//2 + l 
+	y &= (a-1)\times \floordivision{n}{2} + l \times (a+1) - a\times (\floordivision{n}{2}+l-1) \\
+	y &= a\times \floordivision{n}{2} - \floordivision{n}{2} +l\times a +l -a\times \floordivision{n}{2}-a\times\ l + a \\
+	y &= \cancel{a\times \floordivision{n}{2}} - \floordivision{n}{2} +\cancel{l\times a} +l -\cancel{a\times \floordivision{n}{2}}-\cancel{a\times\ l} + a \\
+	y &= a - \floordivision{n}{2} + l 
 \end{align*}
 Again it is evident that an $a$ can be choosen such that $y$ can be in a form consistent with assumptions. Thus we have shown that the equation \eqref{yEqualsCase2} is consistent and solvable at extremes of $x$ and thus must be solvable between. $\blacksquare$
 \subsubsection{$\Combination{n}{k}$ is always a natural number when equation \eqref{nIsEven} and \eqref{kEqualsCase3} hold true}\label{ProofkEqualsCase3}
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
-	a \times (2\times n//2 - n//2 - m - x) &= (n//2 + m + y) \nonumber \\
-	a &= \frac{(n//2 +m + y)}{(n//2 -m - x)} \nonumber \\
-	y &= (a-1)\times n//2 - m \times (a+1) - a\times x \label{yEqualsCase3}	
+	a \times (2\times \floordivision{n}{2} - \floordivision{n}{2} - m - x) &= (\floordivision{n}{2} + m + y) \nonumber \\
+	a &= \frac{(\floordivision{n}{2} +m + y)}{(\floordivision{n}{2} -m - x)} \nonumber \\
+	y &= (a-1)\times \floordivision{n}{2} - m \times (a+1) - a\times x \label{yEqualsCase3}	
 \end{align}
 Interpreting this result is as before through an example.\newline
-$\Combination{10}{6}$. Here $n = 10$ and thus $n//2 = 5, k = 6, m = k - n//2 = 6 - 5 = 1$. Furthermore let us assume that $x = 1$, i.e. the denominator is $(n-k-1)$ for which the factor containing numerator has to be found.\newline.
+$\Combination{10}{6}$. Here $n = 10$ and thus $\floordivision{n}{2} = 5, k = 6, m = k - \floordivision{n}{2} = 6 - 5 = 1$. Furthermore let us assume that $x = 1$, i.e. the denominator is $(n-k-1)$ for which the factor containing numerator has to be found.\newline.
 Substituting the above values in \eqref{yEqualsCase3}, we get  $y = (a-1)5-m(a+1)-a*1 = (a-1)5-1(1+a)-a = (a-1)5-2a-1$\newline. 
 It is easy to see that the equation is solved for $a = 3$. In such a case $y$ will be equal to $(3-1)*5-2*3-1 = 3$. i.e. for $(n-k-1)$, there is a multiple in $(k+3)$, where $n=10$ and $k=6$. It is trivial to verify this.
 \begin{align*}
@@ -205,40 +207,40 @@ It is easy to see that the equation is solved for $a = 3$. In such a case $y$ wi
 \end{align*}
 As per \eqref{denominator}, 
 \begin{align}
-	0 \leq x \leq (n-k-1) &= 0 \leq x \leq (2\times n//2-n//2-m-1) \nonumber \\
-	&= 0 \leq x \leq (n//2-m-1) \label{LimitOfXforYEqualsCase3}
+	0 \leq x \leq (n-k-1) &= 0 \leq x \leq (2\times \floordivision{n}{2}-\floordivision{n}{2}-m-1) \nonumber \\
+	&= 0 \leq x \leq (\floordivision{n}{2}-m-1) \label{LimitOfXforYEqualsCase3}
 \end{align}
 We need to show that there is no contradiction at the extremes \eqref{yEqualsCase3} and thus it will hold true for middle values as well.
 Choosing $x = 0$ in equation \eqref{yEqualsCase3} we arrive at,
 \begin{align*}
-	y &= (a-1)\times n//2 - m \times (a+1) - a\times x \\
-	y &= (a-1)\times n//2 - m \times (a+1) - a\times 0 \\
-	y &= (a-1)\times n//2 - m \times (a+1)
+	y &= (a-1)\times \floordivision{n}{2} - m \times (a+1) - a\times x \\
+	y &= (a-1)\times \floordivision{n}{2} - m \times (a+1) - a\times 0 \\
+	y &= (a-1)\times \floordivision{n}{2} - m \times (a+1)
 \end{align*}
  The above should hold for $y \geq 1$. Thus
  \begin{align*}
- 	(a-1)\times n//2 \geq 1 +  m \times (a+1) \\
- 	a\times n//2 -m\times a \geq (1+m+n//2) \\
- 	a \geq \frac{(1+m+n//2)}{(n//2-m)}
+ 	(a-1)\times \floordivision{n}{2} \geq 1 +  m \times (a+1) \\
+ 	a\times \floordivision{n}{2} -m\times a \geq (1+m+\floordivision{n}{2}) \\
+ 	a \geq \frac{(1+m+\floordivision{n}{2})}{(\floordivision{n}{2}-m)}
  \end{align*}
-The last equation is defined as long as $n//2 \ge m$. This constraint is already in place due to the premise of \eqref{kEqualsCase3}. Thus a value of \textbf{$a$} can be computed such that \eqref{yEqualsCase3} is satisfied.\newline
-Working at the other extreme of $x = (n//2 - m -1)$ we observe the below.
+The last equation is defined as long as $\floordivision{n}{2} \ge m$. This constraint is already in place due to the premise of \eqref{kEqualsCase3}. Thus a value of \textbf{$a$} can be computed such that \eqref{yEqualsCase3} is satisfied.\newline
+Working at the other extreme of $x = (\floordivision{n}{2} - m -1)$ we observe the below.
 \begin{align*}
-	y &= (a-1)\times n//2 -m \times(1+a) -a \times (n//2 -m -1) \\
-	y &= a\times n//2 - n//2 -m -m\times a -a \times n//2 - a\times m + a \\
-	y &= \cancel{a\times n//2} - n//2 -m -\cancel{m\times a} -\cancel{a \times n//2} - \cancel{a\times m} + a \\
-	y &= (a - n//2) - m
+	y &= (a-1)\times \floordivision{n}{2} -m \times(1+a) -a \times (\floordivision{n}{2} -m -1) \\
+	y &= a\times \floordivision{n}{2} - \floordivision{n}{2} -m -m\times a -a \times \floordivision{n}{2} - a\times m + a \\
+	y &= \cancel{a\times \floordivision{n}{2}} - \floordivision{n}{2} -m -\cancel{m\times a} -\cancel{a \times \floordivision{n}{2}} - \cancel{a\times m} + a \\
+	y &= (a - \floordivision{n}{2}) - m
 \end{align*}
 As seen, $y$ has allowed solutions at both extremes as there is always an a that can be choosen to satisfy the constraints.$\blacksquare$
 \subsubsection{$\Combination{n}{k}$ is always a natural number when equation \eqref{nIsOdd} and \eqref{kEqualsCase4} hold true}\label{ProofkEqualsCase4}
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
-	a \times (2\times n//2 + 1 - n//2 - x) &= (n//2 + y) \nonumber \\
-	a &= \frac{(n//2 + y)}{(n//2 + 1 - x)} \nonumber \\
-	y &= (a-1)\times n//2 + a - a\times x \label{yEqualsCase4}	
+	a \times (2\times \floordivision{n}{2} + 1 - \floordivision{n}{2} - x) &= (\floordivision{n}{2} + y) \nonumber \\
+	a &= \frac{(\floordivision{n}{2} + y)}{(\floordivision{n}{2} + 1 - x)} \nonumber \\
+	y &= (a-1)\times \floordivision{n}{2} + a - a\times x \label{yEqualsCase4}	
 \end{align}
 The best way to understand the above equation, as before, is through an example.\newline
-In $\Combination{11}{5}$, $n=11$, $n//2=5=k$. Let $x$ be equal to $1$, then substituting the values in the above equation, we get,
+In $\Combination{11}{5}$, $n=11$, $\floordivision{n}{2}=5=k$. Let $x$ be equal to $1$, then substituting the values in the above equation, we get,
 \begin{align*}
 	y = (a-1)\times 5 + a - a\times 1 \\
 	y = (a-1)\times 5 + \cancel{a} - \cancel{a\times 1} \\
@@ -252,65 +254,65 @@ Clearly $a = 2$ will give a solution and $y$ will be equal to $5$. That means fo
 	10 &= 10
 \end{align*}
 Just like before we can appreciate that the equation \eqref{yEqualsCase4} has boundaries for extreme values of $x$. Thus if we show the lower extreme and upper extreme values of $x$ to have a consistent solution, then the proof must hold for values in between.\newline
-We remember that $0 \leq x \leq (n-k-1)=0 \leq x \leq (2\times n//2 + 1-n//2-1)=0 \leq x \leq n//2$. First we will check for the lower limit of $0$. Putting $0$ in equation \eqref{yEqualsCase4}, we get,
+We remember that $0 \leq x \leq (n-k-1)=0 \leq x \leq (2\times \floordivision{n}{2} + 1-\floordivision{n}{2}-1)=0 \leq x \leq \floordivision{n}{2}$. First we will check for the lower limit of $0$. Putting $0$ in equation \eqref{yEqualsCase4}, we get,
 \begin{align*}
-	y &= (a-1)\times n//2 + a - a\times x \\
-	y &= (a-1)\times n//2 + a - a\times 0 \\
-	y &= (a-1)\times n//2 + a \\
+	y &= (a-1)\times \floordivision{n}{2} + a - a\times x \\
+	y &= (a-1)\times \floordivision{n}{2} + a - a\times 0 \\
+	y &= (a-1)\times \floordivision{n}{2} + a \\
 \end{align*}
 Clearly a value of $a$ can be choosen such that R.H.S satisfies the constraint that $y \in \mathbb{N}$. When we think of the other extreme, we obtain the following.
 \begin{align*}
-	y &= (a-1)\times n//2 + a - a\times x \\
-	y &= (a-1)\times n//2 + a - a\times (n-k-1) \\
-	y &= (a-1)\times n//2 + a - a\times (2\times n//2 + 1-n//2-1) \\
-	y &= (a-1)\times n//2 + a - a\times (n//2) \\
-	y &= a - n//2
+	y &= (a-1)\times \floordivision{n}{2} + a - a\times x \\
+	y &= (a-1)\times \floordivision{n}{2} + a - a\times (n-k-1) \\
+	y &= (a-1)\times \floordivision{n}{2} + a - a\times (2\times \floordivision{n}{2} + 1-\floordivision{n}{2}-1) \\
+	y &= (a-1)\times \floordivision{n}{2} + a - a\times (\floordivision{n}{2}) \\
+	y &= a - \floordivision{n}{2}
 \end{align*}
 Here also it is clear that a value of \textbf{$a$} can be choosen such that the R.H.S is greater than or equal to $1$. \newline
 Thus we have shown that a valid $y$ can be obtained by choosing an appropriate $a$, for two extreme values of $x$.$\blacksquare$
 \subsubsection{$\Combination{n}{k}$ is always a natural number when equation \eqref{nIsOdd} and \eqref{kEqualsCase5} hold true}\label{ProofkEqualsCase5}
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
-	a \times (2\times n//2 + 1 - n//2 +l - x) &= (n//2 -l + y) \nonumber \\
-	a &= \frac{(n//2 -l + y)}{(n//2 + 1 +l - x)} \nonumber \\
-	y &= (a-1)\times n//2 + l\times(a+1) - a\times x + a \label{yEqualsCase5}	
+	a \times (2\times \floordivision{n}{2} + 1 - \floordivision{n}{2} +l - x) &= (\floordivision{n}{2} -l + y) \nonumber \\
+	a &= \frac{(\floordivision{n}{2} -l + y)}{(\floordivision{n}{2} + 1 +l - x)} \nonumber \\
+	y &= (a-1)\times \floordivision{n}{2} + l\times(a+1) - a\times x + a \label{yEqualsCase5}	
 \end{align}
-Let us find the value for an example. Suppose we are given $\Combination{11}{4}$. Here $n=11$, $n//2=5$, $k=4$, $l=1$ and let's say $x=1$. Then putting these values in the above equation, we get:
+Let us find the value for an example. Suppose we are given $\Combination{11}{4}$. Here $n=11$, $\floordivision{n}{2}=5$, $k=4$, $l=1$ and let's say $x=1$. Then putting these values in the above equation, we get:
 \begin{align*}
-	y &= (a-1)\times n//2 + l\times(a+1) - a\times x + a \\
+	y &= (a-1)\times \floordivision{n}{2} + l\times(a+1) - a\times x + a \\
 	y &= (a-1)\times 5 + 1\times(a+1) - a\times 1 + a \\
 	y &= (a-1)\times 5 + \cancel{1\times a}+ 1 - \cancel{a\times 1} + a \\
 	y &= (a-1)\times 5 + 1 + a \\
 \end{align*}
 Clearly $a=1$ gives a solution and thus $y=2$. This argues that for $(n-k-1)$, there is a factor in $(k+2)$ for this example. i.e. for $(11-4-1)$ we have a factor in $(4+2)$. It is evident that $6$ is on both sides of the equation.\newline
 Now we have to show that given an $x$ and $l$ and $n$, we can get a $y$ such that $y \in \mathbb{N}$. We will show for two extreme values of $x$, it should hold true for values in between.\newline
-Let's recall that $0 \leq x \leq (n-k-1) = 0 \leq x \leq (2\times n//2+1-n//2+l-1) = 0 \leq x \leq (n//2 + l)$. Starting with $x=0$ and substituting $x=0$ in equation \eqref{yEqualsCase5}.
+Let's recall that $0 \leq x \leq (n-k-1) = 0 \leq x \leq (2\times \floordivision{n}{2}+1-\floordivision{n}{2}+l-1) = 0 \leq x \leq (\floordivision{n}{2} + l)$. Starting with $x=0$ and substituting $x=0$ in equation \eqref{yEqualsCase5}.
 \begin{align*}
-	y &= (a-1)\times n//2 + l\times(a+1) - a\times x + a \\
-	y &= (a-1)\times n//2 + l\times(a+1) - a\times 0 + a \\	
-	y &= (a-1)\times n//2 + l\times(a+1) + a \\		
+	y &= (a-1)\times \floordivision{n}{2} + l\times(a+1) - a\times x + a \\
+	y &= (a-1)\times \floordivision{n}{2} + l\times(a+1) - a\times 0 + a \\	
+	y &= (a-1)\times \floordivision{n}{2} + l\times(a+1) + a \\		
 \end{align*}
 In the above each term on the right hand side is a positive integer and therefore the net value of $y$ is also going to be a positive integer and thus the restriction that $1 \leq y, y \in \mathbb{N}$\newline
 Putting the other extreme value of $x$ in equation \eqref{yEqualsCase5}
 \begin{align*}
-	y &= (a-1)\times n//2 + l\times(a+1) - a\times x + a \\
-	y &= (a-1)\times n//2 + l\times(a+1) - a\times (n//2+l) + a \\	
-	y &= a\times n//2 - n//2 - l\times a + l -a\times n//2 - a \times l + a \\
-	y &= \cancel{a\times n//2} - n//2 - \cancel{l\times a} + l -\cancel{a\times n//2} - \cancel{a \times l} + a \\
-	y &= a - n//2 + l \\
+	y &= (a-1)\times \floordivision{n}{2} + l\times(a+1) - a\times x + a \\
+	y &= (a-1)\times \floordivision{n}{2} + l\times(a+1) - a\times (\floordivision{n}{2}+l) + a \\	
+	y &= a\times \floordivision{n}{2} - \floordivision{n}{2} - l\times a + l -a\times \floordivision{n}{2} - a \times l + a \\
+	y &= \cancel{a\times \floordivision{n}{2}} - \floordivision{n}{2} - \cancel{l\times a} + l -\cancel{a\times \floordivision{n}{2}} - \cancel{a \times l} + a \\
+	y &= a - \floordivision{n}{2} + l \\
 \end{align*}
 Given the limits on $l$ as per equation \eqref{kEqualsCase5}, a value of $l$ can be found such that a consistent value of $y$ can be obtained. $\blacksquare$\\
 \subsubsection{$\Combination{n}{k}$ is always a natural number when equation \eqref{nIsOdd} and \eqref{kEqualsCase6} hold true}\label{ProofkEqualsCase6}
 \begin{align}
 	a \times (n-k-x) &= (k+y) \nonumber \\
-	a \times (2\times n//2 + 1 - n//2 -m - x) &= (n//2 +m + y) \nonumber \\
-	a &= \frac{(n//2 +m  + y)}{(n//2 + 1 +-m - x)} \nonumber \\
-	y &= (a-1)\times n//2 -m\times(a+1) - a\times x + a \label{yEqualsCase6}	
+	a \times (2\times \floordivision{n}{2} + 1 - \floordivision{n}{2} -m - x) &= (\floordivision{n}{2} +m + y) \nonumber \\
+	a &= \frac{(\floordivision{n}{2} +m  + y)}{(\floordivision{n}{2} + 1 +-m - x)} \nonumber \\
+	y &= (a-1)\times \floordivision{n}{2} -m\times(a+1) - a\times x + a \label{yEqualsCase6}	
 \end{align}
 Let us see the equation \eqref{yEqualsCase6} in action. \newline
-Suppose it is given that we have to work on $\Combination{11}{6}$, then $n=11,n//2=5,k=6,m=1$. Furthermore suppose $x=3$, i.e. we have to find the multiple of $(n-k-3)$ in the numerator.
+Suppose it is given that we have to work on $\Combination{11}{6}$, then $n=11,\floordivision{n}{2}=5,k=6,m=1$. Furthermore suppose $x=3$, i.e. we have to find the multiple of $(n-k-3)$ in the numerator.
 \begin{align*}
-	y &= (a-1)\times n//2 -m\times(a+1) - a\times x + a \\
+	y &= (a-1)\times \floordivision{n}{2} -m\times(a+1) - a\times x + a \\
 	y &= (a-1)\times 5 - 1\times(a+1) - a\times 3 + a \\
 	y &= (a-1)\times 5 -1 -3\times a \\
 	y &= 5\times a - 5 -1 -3\times a \\
@@ -318,7 +320,7 @@ Suppose it is given that we have to work on $\Combination{11}{6}$, then $n=11,n/
 \end{align*}
 Clearly there is a solution for $a = 4$. Once we have obtained, a then we can plug it in equation \eqref{yEqualsCase6} to obtain the value of $y$. We get,
 \begin{align*}
-	y &= (a-1)\times n//2 -m\times(a+1) - a\times x + a \\
+	y &= (a-1)\times \floordivision{n}{2} -m\times(a+1) - a\times x + a \\
 	y &= (4-1)\times 5 -1\times(4+1) - 4\times 3 + 4 \\
 	y &= 15 - 5 -12 + 4 \\
 	y &= 2
@@ -330,40 +332,40 @@ Thus for $\Combination{11}{6}$, for the numerator $(n-k-3)$, there is a factor i
 \end{align*}
 Thus we arrive at a consistent solution.\newline
 What is left to be shown is that given an $x$, $m$ and $n$, we can always get a $y$ such that $y \in \mathbb{N}$. Since $x$ has limits in equation \eqref{yEqualsCase6}, it suffices to show that a consistent $y$ can be obtained always if consistent $y$ can be obtained at the lower and upper extremes.\newline
-Now $0 \leq x \leq (n-k-1) = 0 \leq x \leq (2\times n//2+1-n//2-m-1) = 0 \leq x \leq (n//2 -m)$. Given this premise, we first substitute the lower limit of $x$ which is $0$.
+Now $0 \leq x \leq (n-k-1) = 0 \leq x \leq (2\times \floordivision{n}{2}+1-\floordivision{n}{2}-m-1) = 0 \leq x \leq (\floordivision{n}{2} -m)$. Given this premise, we first substitute the lower limit of $x$ which is $0$.
 \begin{align*}
-	y &= (a-1)\times n//2 -m\times(a+1) - a\times x + a \\
-	y &= (a-1)\times n//2 -m\times(a+1) - a\times 0 + a \\
-	y &= (a-1)\times n//2 -m\times(a+1) + a \\
-	y &= a\times(n//2-m+1) - (n//2+m) \\
+	y &= (a-1)\times \floordivision{n}{2} -m\times(a+1) - a\times x + a \\
+	y &= (a-1)\times \floordivision{n}{2} -m\times(a+1) - a\times 0 + a \\
+	y &= (a-1)\times \floordivision{n}{2} -m\times(a+1) + a \\
+	y &= a\times(\floordivision{n}{2}-m+1) - (\floordivision{n}{2}+m) \\
 \end{align*}
-So as long as $a\times(n//2-m+1) - (n//2+m) \geq 1$, the RHS will be a natural number and consistent $y$ can be obtained.
+So as long as $a\times(\floordivision{n}{2}-m+1) - (\floordivision{n}{2}+m) \geq 1$, the RHS will be a natural number and consistent $y$ can be obtained.
 \begin{align}
-	a\times(n//2-m+1) - (n//2+m) &\geq 1 \nonumber \\
-	a\times(n//2-m+1) &\geq (n//2+m+1) \nonumber \\
-	a &\geq \frac{(n//2+m+1)}{(n//2-m+1)} \label{tempAforYequals6-1}
+	a\times(\floordivision{n}{2}-m+1) - (\floordivision{n}{2}+m) &\geq 1 \nonumber \\
+	a\times(\floordivision{n}{2}-m+1) &\geq (\floordivision{n}{2}+m+1) \nonumber \\
+	a &\geq \frac{(\floordivision{n}{2}+m+1)}{(\floordivision{n}{2}-m+1)} \label{tempAforYequals6-1}
 \end{align}
-Thus for the above to hold true $(1+n//2-m) \geq 0$.\newline
+Thus for the above to hold true $(1+\floordivision{n}{2}-m) \geq 0$.\newline
 Due to constraints imposed by \eqref{ProofkEqualsCase6} 
 \begin{align*}
 	m \leq (n+1)/2 \\
-	m \leq (2\times n//2 + 1 +1)/2 \\
-	m \leq (2\times n//2 + 2)/2 \\
-	m \leq (n//2+1) \\
-	0 \leq (1+n//2-m)
+	m \leq (2\times \floordivision{n}{2} + 1 +1)/2 \\
+	m \leq (2\times \floordivision{n}{2} + 2)/2 \\
+	m \leq (\floordivision{n}{2}+1) \\
+	0 \leq (1+\floordivision{n}{2}-m)
 \end{align*}
-So the requirement is already satisfied for \eqref{tempAforYequals6-1} and thus for $x=0$ it is always possible to have a $y \in \mathbb{N}$. Now let us see the other extreme of $x$ which is $(n//2-m)$. Putting this value in equation \eqref{yEqualsCase6}.
+So the requirement is already satisfied for \eqref{tempAforYequals6-1} and thus for $x=0$ it is always possible to have a $y \in \mathbb{N}$. Now let us see the other extreme of $x$ which is $(\floordivision{n}{2}-m)$. Putting this value in equation \eqref{yEqualsCase6}.
 \begin{align*}
-	y &= (a-1)\times n//2 -m\times(a+1) - a\times x + a \\
-	y &= (a-1)\times n//2 -m\times(a+1) - a\times(n//2-m) + a\\
-	y &= a\times n//2 -n//2 -m\times a - m -a\times n//2 +a\times m + a \\
-	y &= \cancel{a\times n//2} -n//2 -\cancel{m\times a} - m -\cancel{a\times n//2} +\cancel{a\times m} + a \\
-	y &= (a - n//2) -m 
+	y &= (a-1)\times \floordivision{n}{2} -m\times(a+1) - a\times x + a \\
+	y &= (a-1)\times \floordivision{n}{2} -m\times(a+1) - a\times(\floordivision{n}{2}-m) + a\\
+	y &= a\times \floordivision{n}{2} -\floordivision{n}{2} -m\times a - m -a\times \floordivision{n}{2} +a\times m + a \\
+	y &= \cancel{a\times \floordivision{n}{2}} -\floordivision{n}{2} -\cancel{m\times a} - m -\cancel{a\times \floordivision{n}{2}} +\cancel{a\times m} + a \\
+	y &= (a - \floordivision{n}{2}) -m 
 \end{align*}
-If $(a - n//2) -m \geq 1$, the RHS will always be a positive integer and a consistent $y$ can be obtained.
+If $(a - \floordivision{n}{2}) -m \geq 1$, the RHS will always be a positive integer and a consistent $y$ can be obtained.
 \begin{align}
-	(a - n//2) -m  &\geq 1 \nonumber \\
-	a &\geq (n//2+m+1) \label{tempAforYequals6-2}
+	(a - \floordivision{n}{2}) -m  &\geq 1 \nonumber \\
+	a &\geq (\floordivision{n}{2}+m+1) \label{tempAforYequals6-2}
 \end{align}
 Since the R.H.S is a positive integer it is always possible to get such a value of $a$ and thus $y$ can be obtained for the other extreme of $x$, as well.$\blacksquare$
 \section{Visualizing the relationship between x, y and a}\label{Visualization}
@@ -406,7 +408,7 @@ Based on the images seen before it is clear that the values of $a$ for which an 
 	\item In either of the pictures (destruction or construction), we can pause at any $\Combination{n}{k}$ and we can calculate the value of combination as in \ref{Visualization}.
 	\end{enumerate} 
 \section{Conclusion}\label{Summary}
-This article discusses about $\Combination{n}{k}$, where if $n$ is even it can be written as $2*n//2$ (where $n//2$ is the integer part of division of $n$ by $2$) while it can be stated as $2*n//2+1$ if it is odd. Furthermore $k$, can take only three values: $(n//2), (n//2 - l) \text{ or } (n//2 + m)$, where $l$ and $m$ are positive integers greater than $1$, and they denote \textit{less} and \textit{more} respectively.
+This article discusses about $\Combination{n}{k}$, where if $n$ is even it can be written as $2*\floordivision{n}{2}$ (where $\floordivision{n}{2}$ is the integer part of division of $n$ by $2$) while it can be stated as $2*\floordivision{n}{2}+1$ if it is odd. Furthermore $k$, can take only three values: $(\floordivision{n}{2}), (\floordivision{n}{2} - l) \text{ or } (\floordivision{n}{2} + m)$, where $l$ and $m$ are positive integers greater than $1$, and they denote \textit{less} and \textit{more} respectively.
 
 The denominator is composed of product of $(n-k-x)$ terms, while the numerator is composed of products of $(k+y)$ terms, with the following constraints.
 
@@ -426,17 +428,20 @@ With these premises we obtain the following relationship table between $y$ and $
 	\hline
 	\textbf{$n$} & \textbf{$k$} & \textbf{$y$} \\
 	\hline
-	Even & $n//2 \pm 0$ \space(i.e. $k = n//2$) & $y = (a-1)\times n//2 - a\times x$ \\
+	\color{blue}
+	Even & $\floordivision{n}{2} \pm 0$ \space(i.e. $k = \floordivision{n}{2}$) & $y = (a-1)\times \floordivision{n}{2} - a\times x$ \\
 	\hline
-	Even & $n//2 - l$ \space(i.e. $k < n//2$) & $y = (a-1)\times n//2 + l \times (a+1) - a\times x$ \\
+	\color{blue}
+	Even & $\floordivision{n}{2} - l$ \space(i.e. $k < \floordivision{n}{2}$) & $y = (a-1)\times \floordivision{n}{2} + l \times (a+1) - a\times x$ \\
 	\hline
-	Even & $n//2 + m$ (i.e. $k > n//2$) & $y = (a-1)\times n//2 - m \times (a+1) - a\times x$ \\
+	\color{blue}
+	Even & $\floordivision{n}{2} + m$ (i.e. $k > \floordivision{n}{2}$) & $y = (a-1)\times \floordivision{n}{2} - m \times (a+1) - a\times x$ \\
 	\hline
-	Odd & $n//2 \pm 0$ \space(i.e. $k = n//2$) & $y = (a-1)\times n//2 + a - a\times x$ \\
+	Odd & $\floordivision{n}{2} \pm 0$ \space(i.e. $k = \floordivision{n}{2}$) & $y = (a-1)\times \floordivision{n}{2} + a - a\times x$ \\
 	\hline
-	Odd & $n//2 - l$ \space(i.e. $k < n//2$) & $y = (a-1)\times n//2 + a + l\times(a+1) - a\times x$ \\
+	Odd & $\floordivision{n}{2} - l$ \space(i.e. $k < \floordivision{n}{2}$) & $y = (a-1)\times \floordivision{n}{2} + a + l\times(a+1) - a\times x$ \\
 	\hline
-	Odd & $n//2 + m$ (i.e. $k > n//2$)  & $y = (a-1)\times n//2 + a -m\times(a+1) - a\times x$ \\
+	Odd & $\floordivision{n}{2} + m$ (i.e. $k > \floordivision{n}{2}$)  & $y = (a-1)\times \floordivision{n}{2} + a -m\times(a+1) - a\times x$ \\
 	\hline
 \end{tabular}
 
@@ -447,17 +452,20 @@ There can be an equivalent table where all the $a$ terms are brought together. T
 	\hline
 	\textbf{$n$} & \textbf{$k$} & \textbf{$y$} \\
 	\hline
-	Even & $n//2$ \space(i.e. $k = n//2$) & $y = a \times (n//2-x) - n//2$ \\
+	\color{blue}
+	Even & $\floordivision{n}{2}$ \space(i.e. $k = \floordivision{n}{2}$) & $y = a \times (\floordivision{n}{2}-x) - \floordivision{n}{2}$ \\
 	\hline
-	Even & $n//2 - l$ \space(i.e. $k < n//2$) & $y = a \times (n//2-x+l ) - n//2 + l$ \\
+	\color{blue}
+	Even & $\floordivision{n}{2} - l$ \space(i.e. $k < \floordivision{n}{2}$) & $y = a \times (\floordivision{n}{2}-x+l ) - \floordivision{n}{2} + l$ \\
 	\hline
-	Even & $n//2 + m $ (i.e. $k > n//2$) & $y = a \times (n//2-x-m ) - n//2 -m$ \\
+	\color{blue}
+	Even & $\floordivision{n}{2} + m $ (i.e. $k > \floordivision{n}{2}$) & $y = a \times (\floordivision{n}{2}-x-m ) - \floordivision{n}{2} -m$ \\
 	\hline
-	Odd & $n//2 $ \space(i.e. $k = n//2$) & $y = a \times (n//2-x +1) - n//2$ \\
+	Odd & $\floordivision{n}{2} $ \space(i.e. $k = \floordivision{n}{2}$) & $y = a \times (\floordivision{n}{2}-x +1) - \floordivision{n}{2}$ \\
 	\hline
-	Odd & $n//2 - l $ \space(i.e. $k < n//2$) & $y = a \times (n//2-x+l +1) - n//2 + l$ \\
+	Odd & $\floordivision{n}{2} - l $ \space(i.e. $k < \floordivision{n}{2}$) & $y = a \times (\floordivision{n}{2}-x+l +1) - \floordivision{n}{2} + l$ \\
 	\hline
-	Odd & $n//2 + m $ (i.e. $k > n//2$)  & $y = a \times (n//2-x-m +1 ) - n//2 -m $ \\
+	Odd & $\floordivision{n}{2} + m $ (i.e. $k > \floordivision{n}{2}$)  & $y = a \times (\floordivision{n}{2}-x-m +1 ) - \floordivision{n}{2} -m $ \\
 	\hline
 \end{tabular}
 \section{Other implications of the current work}
@@ -517,14 +525,14 @@ def helper_even_not_l_m(each_x:int,
     This function prepares y and individual params if n is even and both l amd m are zero for k.
     """
     while True:
-        y_ = (starting_guess-1)*n//2 - (starting_guess*each_x)
-        if y_ > (2*(n//2)-k):
+        y_ = (starting_guess-1)*\floordivision{n}{2} - (starting_guess*each_x)
+        if y_ > (2*(\floordivision{n}{2})-k):
             break                    
         if y_ >= 1:
             a.append(starting_guess)
             indiv_solution_params.append((l,not_l_m,m,starting_guess))
         starting_guess += 1
-    y_s = list(map(lambda a_dash: (a_dash-1)*n//2 - (a_dash*each_x),a))
+    y_s = list(map(lambda a_dash: (a_dash-1)*\floordivision{n}{2} - (a_dash*each_x),a))
     y.append(y_s)
 
 def helper_even_l(each_x:int,
@@ -541,14 +549,14 @@ def helper_even_l(each_x:int,
     This function prepares y and individual params if n is even and m is zero for k but not l.
     """    
     while True:
-        y_ = (starting_guess-1)*(n//2) + l*(starting_guess+1) - (starting_guess*each_x)
-        if y_ > (2*(n//2)-k):
+        y_ = (starting_guess-1)*(\floordivision{n}{2}) + l*(starting_guess+1) - (starting_guess*each_x)
+        if y_ > (2*(\floordivision{n}{2})-k):
             break
         if y_ >= 1:
             a.append(starting_guess)
             indiv_solution_params.append((l,not_l_m,m,starting_guess))
         starting_guess += 1
-    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2) +l*(a_dash+1) - (a_dash*each_x),a))
+    y_s = list(map(lambda a_dash: (a_dash-1)*(\floordivision{n}{2}) +l*(a_dash+1) - (a_dash*each_x),a))
     y.append(y_s)    
 
 def helper_even_m(each_x:int,
@@ -565,14 +573,14 @@ def helper_even_m(each_x:int,
     This function prepares y and individual params if n is even and l is zero for k but not m.
     """   
     while True:
-        y_ = (starting_guess-1)*(n//2) -m*(starting_guess+1) - (starting_guess*each_x)
-        if y_ > (2*(n//2)-k):
+        y_ = (starting_guess-1)*(\floordivision{n}{2}) -m*(starting_guess+1) - (starting_guess*each_x)
+        if y_ > (2*(\floordivision{n}{2})-k):
             break                    
         if y_ >= 1:
             a.append(starting_guess)
             indiv_solution_params.append((l,not_l_m,m,starting_guess))
         starting_guess += 1
-    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2) -m*(a_dash+1) - (a_dash*each_x),a))
+    y_s = list(map(lambda a_dash: (a_dash-1)*(\floordivision{n}{2}) -m*(a_dash+1) - (a_dash*each_x),a))
     y.append(y_s)    
 
 def helper_noteven_not_l_m(each_x:int,
@@ -589,14 +597,14 @@ def helper_noteven_not_l_m(each_x:int,
     This function prepares y and individual params if n is odd and both l amd m are zero for k.
     """    
     while True:
-        y_ = (starting_guess-1)*(n//2) +starting_guess - (starting_guess*each_x)
-        if y_ > ((2*(n//2)+1)-k):
+        y_ = (starting_guess-1)*(\floordivision{n}{2}) +starting_guess - (starting_guess*each_x)
+        if y_ > ((2*(\floordivision{n}{2})+1)-k):
             break                    
         if y_ >= 1:
             a.append(starting_guess)
             indiv_solution_params.append((l,not_l_m,m,starting_guess))
         starting_guess += 1
-    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash - (a_dash*each_x),a))
+    y_s = list(map(lambda a_dash: (a_dash-1)*(\floordivision{n}{2})+a_dash - (a_dash*each_x),a))
     y.append(y_s)
 
 def helper_noteven_l(each_x:int,
@@ -613,14 +621,14 @@ def helper_noteven_l(each_x:int,
     This function prepares y and individual params if n is odd and m is zero for k but not l.
     """   
     while True:
-        y_ = (starting_guess-1)*(n//2) +starting_guess + l*(starting_guess+1) - (starting_guess*each_x)
-        if y_ > ((2*(n//2)+1)-k):
+        y_ = (starting_guess-1)*(\floordivision{n}{2}) +starting_guess + l*(starting_guess+1) - (starting_guess*each_x)
+        if y_ > ((2*(\floordivision{n}{2})+1)-k):
             break                    
         if y_ >= 1:
             a.append(starting_guess)
             indiv_solution_params.append((l,not_l_m,m,starting_guess))
         starting_guess += 1
-    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash +l*(a_dash+1) - (a_dash*each_x),a))
+    y_s = list(map(lambda a_dash: (a_dash-1)*(\floordivision{n}{2})+a_dash +l*(a_dash+1) - (a_dash*each_x),a))
     y.append(y_s)    
 
 def helper_noteven_m(each_x:int,
@@ -637,14 +645,14 @@ def helper_noteven_m(each_x:int,
     This function prepares y and individual params if n is odd and l is zero for k but not m.
     """ 
     while True:
-        y_ = (starting_guess-1)*(n//2) +starting_guess -m*(starting_guess+1) - (starting_guess*each_x)
-        if y_ > ((2*(n//2)+1)-k):
+        y_ = (starting_guess-1)*(\floordivision{n}{2}) +starting_guess -m*(starting_guess+1) - (starting_guess*each_x)
+        if y_ > ((2*(\floordivision{n}{2})+1)-k):
             break                    
         if y_ >= 1:
             a.append(starting_guess)
             indiv_solution_params.append((l,not_l_m,m,starting_guess))
         starting_guess += 1
-    y_s = list(map(lambda a_dash: (a_dash-1)*(n//2)+a_dash -m*(a_dash+1) - (a_dash*each_x),a))
+    y_s = list(map(lambda a_dash: (a_dash-1)*(\floordivision{n}{2})+a_dash -m*(a_dash+1) - (a_dash*each_x),a))
     y.append(y_s)       
 
 def create_chart_combination(n: int, k:int)->list[list[int], list[int], list[int]]:
@@ -653,12 +661,12 @@ def create_chart_combination(n: int, k:int)->list[list[int], list[int], list[int
     -----------------------------------------------------------------------------
     | n     | k     | y                                                         |
     -----------------------------------------------------------------------------
-    | Even  | n//2  | y = (a-1)\times n//2 - a\times x                          |
-    | Even  | n//2-l| y = (a-1)\times n//2 + l \times (a+1) - a\times x         |
-    | Even  | n//2+m| y = (a-1)\times n//2 - m \times (a+1) - a\times x         |
-    | Odd   | n//2  | y = (a-1)\times n//2 + a - a\times x                      |
-    | Odd   | n//2-l| y = (a-1)\times n//2 + a + l\times(a+1) - a\times x       |
-    | Odd   | n//2+m| y = (a-1)\times n//2 + a -m\times(a+1) - a\times x        |
+    | Even  | \floordivision{n}{2}  | y = (a-1)\times \floordivision{n}{2} - a\times x                          |
+    | Even  | \floordivision{n}{2}-l| y = (a-1)\times \floordivision{n}{2} + l \times (a+1) - a\times x         |
+    | Even  | \floordivision{n}{2}+m| y = (a-1)\times \floordivision{n}{2} - m \times (a+1) - a\times x         |
+    | Odd   | \floordivision{n}{2}  | y = (a-1)\times \floordivision{n}{2} + a - a\times x                      |
+    | Odd   | \floordivision{n}{2}-l| y = (a-1)\times \floordivision{n}{2} + a + l\times(a+1) - a\times x       |
+    | Odd   | \floordivision{n}{2}+m| y = (a-1)\times \floordivision{n}{2} + a -m\times(a+1) - a\times x        |
     -----------------------------------------------------------------------------
     The chart can be made in the following step.
     1. Decide n is even or odd.
@@ -668,9 +676,9 @@ def create_chart_combination(n: int, k:int)->list[list[int], list[int], list[int
     5. Return a list of three lists [x, y, a] # for plotting
     """
     is_even = n%2 == 0
-    l, not_l_m, m = n//2-k if k < n//2 else None, \
-                    n//2 if k==n//2 else None, \
-                    k-n//2 if k > n//2 else None
+    l, not_l_m, m = \floordivision{n}{2}-k if k < \floordivision{n}{2} else None, \
+                    \floordivision{n}{2} if k==\floordivision{n}{2} else None, \
+                    k-\floordivision{n}{2} if k > \floordivision{n}{2} else None
     x = list(range(0,n-k,1))
     y = []
     solution_params = []    
