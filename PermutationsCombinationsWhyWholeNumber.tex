@@ -21,9 +21,9 @@
 \begin{document}
 	\maketitle
 	\section{Abstract}
-	 The concept of combination is crucial to layout groundwork for many fundamental sciences, finance and technical domains. Despite having countless empirical observations that a combination (for a `choosen n and k') is always a natural number, a direct proof (inductive or non-inductive) that a combination is always integral, is not rigorously demonstrated in the literature. This article discusses why a combination $\Combination{n}{k}$ will always be a natural number and never fractional or irrational. This article separates an $\Combination{n}{k}$ into mutually exclusive and collectively exhaustive cases and then shows for each case that any term in a denominator have at least one corresponding multiple in the numerator. All $k$ for a particular $n$ (for an $\Combination{n}{k}$) are visualized through plots to gain better understanding. In the context of the plots, this different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.
+	 The concept of combination is crucial to layout groundwork for many fundamental sciences, finance and technical domains. This article discusses why a combination $\Combination{n}{k}$ will always be a natural number and never fractional or irrational. This article separates an $\Combination{n}{k}$ into mutually exclusive and collectively exhaustive cases and then shows for each case that any term in a denominator have at least one corresponding multiple in the numerator. All $k$ for a particular $n$ (for an $\Combination{n}{k}$) are visualized through plots to gain better understanding. In the context of the plots, this different way of looking at a Combination $\Combination{n}{k}$, gives hindsights into the generation process of factors and prime numbers contained within a particular range of $1$ to $n$.
 	\section{Introduction}
-	From countless ages, it has been desired to know the number of ways an arrangement can be obtained or selected out of many possible ways. The quest has travelled from ancient times and has captured the imagination of the great mathematicians like Bhaskara-II\cite{wikipediaCombinatorics}, Blaise Pascal\cite{wikipediaPascal}, Pierre-de-Fermat\cite{wikipediaFermat}, Leonhard Euler\cite{wikipediaEuler} to name a very few.
+	From countless ages, it has been desired to know the number of ways an arrangement can be obtained or selected out of many possible ways.
 	
 	Permutations and Combinations have become fundamental concepts with wide ranging applications in almost every sphere of academic studies or technical endeavors. While a permutation, $\Permutation{n}{k}$, tells how many number of ways $k$ objects can be arranged out of $n$ objects, if we are interested in \textit{exact order of the choosen $k$ items} \cite{PrincTechCombinatorics}.
 		\begin{equation}
@@ -44,64 +44,8 @@
 					   &= \frac{\color{blue}\Permutation{n}{k}}{k!} \label{ConnectionBetweenPermutationAndCOmbination}\\	
 					   &= \frac{\color{blue}n!}{{\color{blue}(n-k)!}\times(k)!} \label{FractionalDefinitionOfCombination}
 	\end{align} 
-	where n! means factorial of n and is defined as $n\times(n-1)\times(n-2)\cdots3\times2\times1$. Some striking correlations are definitely there such as the one using Pascal's triangle. The $n$'th  row of the Pascal's triangle \cite{wikipediaPascalTriangle} is stacked rows of expansion of Binomial Coefficients, where each $k$'th coefficient (in the $n$'th row) is the value of a combination $\Combination{n}{k}$ (see Table \ref{PascalsTriangleAndCombination} and footnote\footnote{Please note that $\Combination{1}{0}=\Combination{1}{1}=1$ as there is exactly one way how $0$ or $n$ items can be choosen out of a total $n$ items}).\newline
-		\begin{table}[h!]
-		\centering
-		\setlength{\tabcolsep}{1pt}
-		\begin{tabular*}{0.7\textwidth}[t]{*{14}l | l | *{14}l}
-		\hfill & \hfill & \hfill & \hfill & \hfill & \hfill & 1 & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & $\Combination{1}{0}$ & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill \\
-		\hfill & \hfill & \hfill & \hfill & 1 & \hfill & 2 & \hfill & 1 &\hfill & \hfill & \hfill & \hfill & \hfill &	\hfill & \hfill & \hfill & \hfill & \hfill & $\Combination{2}{0}$  & \hfill & $\Combination{2}{1}$ & \hfill & $\Combination{2}{2}$ &\hfill & \hfill & \hfill & \hfill \\
-		\hfill & \hfill & \hfill & 1 & \hfill & 3 & \hfill & 3 &\hfill & 1 & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & \hfill & $\Combination{3}{0}$  & \hfill & $\Combination{3}{1}$ &  \hfill & $\Combination{3}{2}$ &\hfill  & $\Combination{3}{3}$ & \hfill & \hfill &\hfill  \\	
-		\hfill & \hfill & 1 & \hfill & 4 & \hfill & 6 & \hfill & 4 & \hfill & 1 & \hfill & \hfill & \hfill & & \hfill	\hfill & \hfill  & $\Combination{4}{0}$ & \hfill & $\Combination{4}{1}$ & \hfill & $\Combination{4}{2}$ & \hfill & $\Combination{4}{3}$ & \hfill  & $\Combination{4}{4}$ & \hfill & \hfill \\
-		\hfill & 1 & \hfill & 5 & \hfill & 10 & \hfill & 10 & \hfill & 5 & \hfill & 1 & \hfill & \hfill & \hfill & \hfill & $\Combination{5}{0}$ & 	\hfill & $\Combination{5}{1}$  & \hfill & $\Combination{5}{2}$ & \hfill & $\Combination{5}{3}$ & \hfill & $\Combination{5}{4}$  & \hfill   & $\Combination{5}{5}$ & \hfill \\		
-		\end{tabular*}
-		\caption{Correlation between Pascal's triangle (left) to Combinations (right)}
-		\label{PascalsTriangleAndCombination}		
-		\end{table}\newline
-		Given the Pascal's triangle it is easy to observe and inductively prove \cite{PrincTechCombinatorics} that
-		\begin{align}
-			\binom{n}{k} &= \binom{n-1}{k-1} + \binom{n-1}{k}  \label{InductiveCombination}\\
-			\text{or}\\
-			\Combination{n}{k} &= \Combination{n-1}{k-1} + \Combination{n-1}{k} \text{ , where $0 < k < n$ ($\because \Combination{n}{0}=\Combination{n}{n}=1$, need not be computed. \cite{PrincTechCombinatorics}) }
-		\end{align}
-	  It can also be observed in table \ref{PascalsTriangleAndCombination} that the combinations (and the Pasacal's triangle) have a symmetry:
-	  \begin{align*}
-	   	\Combination{n}{k} &= \frac{n!}{(n-k)!\times(k)!} \\
-	   	\Combination{n}{(n-k)} &= \frac{n!}{(n-(n-k))!\times(n-k)!} \\
-	   	&= \frac{n!}{{(k)!}\times(n-k)!} \\
-	   	&= \frac{n!}{(n-k)!\times(k)!} \\
-	   	\therefore \Combination{n}{k} &= \Combination{n}{(n-k)}  
-	  \end{align*}
-	  
-	  
-		The results (value of combinations) have been observed to be integers (empirically, over and over again based on calculations) for a particular choice of n and k. The focus of this paper is a proof that holds, irrespective of any choice of n and k, and one that transcends manual calculations everytime to show the integral nature. We can think of some known indirect proofs that `show' the combination is integral. \textit{e.g.} We have established above that a permutation, $\Permutation{n}{k}$, is integral. Now by the definition of equation \eqref{ConnectionBetweenPermutationAndCOmbination}, we can say the below:
-	\begin{align*}
-	   & \Permutation{n}{k} = \Combination{n}{k} \times (k)! \\
-	   & \because \text{ L.H.S. is known to be an integer (see equation \eqref{CondensedEquationPermutation}), the R.H.S must also be an integer and is shown below. } \\
-	   & \Combination{n}{k} \times (k)! = \Combination{n}{k} \times \text{ an integer value } (\because \text{ (k)! will always be an integer. }) \\
-	   & \therefore \text{ to make the R.H.S. an integer the combination `must' be an integer as well. } \blacksquare 
-	\end{align*}
-	The proof looks promising but arguments like the below dent it. `\textbf{If}' the $(k)!$ is an even number \textbf{and} $\Combination{n}{k}$ is a fraction number of the nature $x.5 \text{ where $x$ can be any integer}$, then the multiplication of $\Combination{n}{k}\times (k)!$ will still be an integer. However it is trivial to see that the combination is definitely not integral in `this hypothetical' example.
-	
-	On similar lines, we can also make use of equation \eqref{InductiveCombination} and `\textbf{say}' that by induction on `n' the integrality of the combination `will' hold, subjected to the following base conditions:
-	\begin{itemize}
-	\item $\displaystyle \binom{n}{k} = 0 \text{ if $n < k$, premise-1}$
-	\item $\displaystyle \binom{n}{k} = 1 \text{ if $k=0$ or $k=n$, premise-2}$
-	\end{itemize}
-	In these inductive steps, all is fine, if $k \geq n$, since the answer is either 0 or 1. However as soon as $n > k > 0$, we go ahead and assume for one of the two terms that it will be an integer. This is like putting the cart ahead of the horse since we set out to prove that $\Combination{n}{k} = \binom{n}{k}$, will always be an integer in the first place. Let us see below what we mean by this statement. Let's try to calculate $\Combination{7}{3}$ using the induction by starting at $n=0$. We can calculate the final value easily `if we do the calculations manually' as below.
-	\begin{align*}
-	 \binom{1}{3} &= \binom{0}{3} + \binom{0}{2} = 0 + 0 = 0 \text{   $\because  \binom{0}{k}=0$ } \textit{, by premise-1}\\
-	 \binom{2}{3} &= \binom{1}{3} + \binom{1}{2} = 0 + 0 = 0 \textit{, by premise-1}\\
-	 \binom{3}{3} &= \binom{2}{3} + \binom{2}{2} = 0 + 1 = 1 \text{   [$\binom{2}{2}=1 \because  \binom{n}{n}=1$,\textit{ by premise-2}] } \\
-	 \binom{4}{3} &= \binom{3}{3} + \binom{3}{2} = 1 + 3 = 4 \textit{ See the discussion in footnote for this and next 3 steps\footnotemark}\\
-	 \binom{5}{3} &= \binom{4}{3} + \binom{4}{2} = 4 + 6 = 10 \\
-	 \binom{6}{3} &= \binom{5}{3} + \binom{5}{2} = 10 + 10 = 20 \\
-	 \binom{7}{3} &= \binom{6}{3} + \binom{6}{2} = 20 + 15 = 35	 	  	 	 
-	\end{align*}\footnotetext{To be sure that $\binom{3}{2}$ is an integer we have to calculate it, since this is outside the base condition. Equality ($\binom{4}{3} = \binom{3}{3} + \binom{3}{2}$) does not `necessarily' imply integer nature. This holds for $\binom{4}{2}, \binom{5}{2}, \binom{5}{3}, \binom{6}{3}, \binom{6}{2}, \binom{7}{3} \cdots$ and so on}
-	
-	$\Combination{7}{3}$ is indeed 35 but please note that the only thing we could be sure that the L.H.S will be equal to R.H.S. At no stage it was implicit that the R.H.S will be an integer once $n > k > 0$ and since we were trying to prove that a combination is always integer, we cannot assume itself during our formative steps. Thus we can conclude that a direct, inductive or non-inductive and algebraic, proof that the value of combination will `always' be an integer for `any choice of $n$ and $k$', is not `\textbf{explicitly}' stated in the literature.  
-	
-	While a rigorous, inductive algebraic proof establishing that combinations are integral and only integral in nature, may prove to be hard, it should be possible to prove the same by non-inductive blocks of steps. This paper aims to fill the gap and demonstrate non-inductively and algebraically that for each denominator term there is at least one term in the numerator that is a multiple of it. Thus all the terms in the denominator will be cancelled and the final value of a combination will `always collapse to an integer (more correctly a natural number)'. At the end of it we visualize our results through graphs and we find an interesting but also a simple connection with the generation process of factors and prime numbers contained within the range $1$ to $n$. We conclude this article by showing that prime numbers do not arise randomly but they have a simple and systematic generation algorithm. To show effectiveness of this algorithm we start with a \textbf{single prime number, 2,} and generate the first 1000 prime numbers. These \textbf{generated} 1000 primes match exactly the first 1000 \textbf{known} prime numbers.
+	where n! means factorial of n and is defined as $n\times(n-1)\times(n-2)\cdots3\times2\times1$. 
+		The results (value of combinations) have been observed to be integers (empirically, over and over again based on calculations) for a particular choice of n and k. The focus of this paper is a proof that holds, irrespective of any choice of n and k, and one that transcends manual calculations everytime to show the integral nature. This paper aims to demonstrate non-inductively and algebraically that for each denominator term there is at least one term in the numerator that is a multiple of it. Thus all the terms in the denominator will be cancelled and the final value of a combination will `always collapse to an integer (more correctly a natural number)'. At the end of it we visualize our results through graphs and we find an interesting but also a simple connection with the generation process of factors and prime numbers contained within the range $1$ to $n$. We conclude this article by showing that prime numbers do not arise randomly but they have a simple and systematic generation algorithm. To show effectiveness of this algorithm we start with a \textbf{single prime number, 2,} and generate the first 1000 prime numbers. These \textbf{generated} 1000 primes match exactly the first 1000 \textbf{known} prime numbers.
 	\section{Proofs}
  	\subsection{Why Combination $\Combination{n}{k}$ is a natural number?}
  	Combination is the number of arrangements, when the order \textit{does not} matter and is given by \cite{PrincTechCombinatorics}:\newline
